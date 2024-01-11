@@ -5988,17 +5988,25 @@ bool CvPlayer::canReceiveGoody(const CvPlot* pPlot, GoodyTypes eGoody, const CvU
 		return false;
 	}
 
-	if (GC.getGoodyInfo(eGoody).getGoodyUnit() != NO_UNIT)
 	{
-		if (GC.getGoodyInfo(eGoody).isNaval() != pPlot->isWater())
+		const UnitTypes eGoodyUnit = (UnitTypes)GC.getGoodyInfo(eGoody).getGoodyUnit();
+		if (eGoodyUnit != NO_UNIT)
 		{
-			return false;
-		}
+			if (isUnitMaxedOut(eGoodyUnit, getUnitMaking(eGoodyUnit)))
+			{
+				return false;
+			}
 
-		if (GC.getGame().isOption(GAMEOPTION_CHALLENGE_ONE_CITY)
-		&& GC.getUnitInfo((UnitTypes)GC.getGoodyInfo(eGoody).getGoodyUnit()).isFound())
-		{
-			return false;
+			if (GC.getGoodyInfo(eGoody).isNaval() != pPlot->isWater())
+			{
+				return false;
+			}
+
+			if (GC.getGame().isOption(GAMEOPTION_CHALLENGE_ONE_CITY)
+			&& GC.getUnitInfo(eGoodyUnit).isFound())
+			{
+				return false;
+			}
 		}
 	}
 
