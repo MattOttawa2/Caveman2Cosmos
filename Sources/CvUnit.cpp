@@ -45,6 +45,7 @@ static bool		 g_bUseDummyEntities = false;
 
 //	static buffers allocated once and used during read and write only
 int*	CvUnit::g_paiTempPromotionFreeCount = NULL;
+#ifdef OUTBREAKS_AND_AFFLICTIONS
 int*	CvUnit::g_paiTempAfflictOnAttackCount = NULL;
 int*	CvUnit::g_paiTempCureAfflictionCount = NULL;
 int*	CvUnit::g_paiTempCureAfflictionTypeCount = NULL;
@@ -53,16 +54,18 @@ int*	CvUnit::g_paiTempAfflictionTurnCount = NULL;
 int*	CvUnit::g_paiTempAfflictionTurnTypeCount = NULL;
 int*	CvUnit::g_paiTempAfflictionHitCount = NULL;
 int*	CvUnit::g_paiTempAfflictionTolerance = NULL;
+int*	CvUnit::g_paiTempAfflictionTypeTolerance = NULL;
+#endif // OUTBREAKS_AND_AFFLICTIONS
 int*	CvUnit::g_paiTempTrapImmunityUnitCombatCount = NULL;
 int*	CvUnit::g_paiTempTargetUnitCombatCount = NULL;
 int*	CvUnit::g_paiTempExtraTrapDisableUnitCombatType = NULL;
 int*	CvUnit::g_paiTempExtraTrapAvoidanceUnitCombatType = NULL;
 int*	CvUnit::g_paiTempExtraTrapTriggerUnitCombatType = NULL;
-int*	CvUnit::g_paiTempAfflictionTypeTolerance = NULL;
 int*	CvUnit::g_paiTempFortitudeModifierTypeAmount = NULL;
 int*	CvUnit::g_paiTempFortitudeModifierAmount = NULL;
 int*	CvUnit::g_paiTempTrapSetWithPromotionCount = NULL;
 int*	CvUnit::g_paiTempPromotionFromTraitCount = NULL;
+#ifdef OUTBREAKS_AND_AFFLICTIONS
 int*	CvUnit::g_paiTempAfflictOnAttackTypeProbability = NULL;
 int*	CvUnit::g_paiTempAfflictOnAttackTypeCount = NULL;
 int*	CvUnit::g_paiTempAfflictOnAttackTypeImmediateCount = NULL;
@@ -70,6 +73,7 @@ int*	CvUnit::g_paiTempAfflictOnAttackTypeMeleeCount = NULL;
 int*	CvUnit::g_paiTempAfflictOnAttackTypeDistanceCount = NULL;
 int*	CvUnit::g_paiTempAfflictOnAttackTypeAttemptedCount = NULL;
 int*	CvUnit::g_paiTempDistanceAttackCommunicability = NULL;
+#endif // OUTBREAKS_AND_AFFLICTIONS
 bool*	CvUnit::g_pabTempValidBuildUp = NULL;
 int*	CvUnit::g_paiTempExtraUnitCombatModifier = NULL;
 bool*	CvUnit::g_pabTempHasPromotion = NULL;
@@ -157,6 +161,7 @@ m_Properties(this)
 	{
 		//	Allocate static buffers to be used during read and write
 		g_paiTempPromotionFreeCount = new int[GC.getNumPromotionInfos()];
+#ifdef OUTBREAKS_AND_AFFLICTIONS
 		g_paiTempAfflictOnAttackCount = new int[GC.getNumPromotionInfos()];
 		g_paiTempCureAfflictionCount = new int[GC.getNumPromotionInfos()];
 		g_paiTempCureAfflictionTypeCount = new int[GC.getNumPromotionLineInfos()];
@@ -165,16 +170,18 @@ m_Properties(this)
 		g_paiTempAfflictionTurnTypeCount = new int[GC.getNumPromotionLineInfos()];
 		g_paiTempAfflictionHitCount = new int[GC.getNumPromotionInfos()];
 		g_paiTempAfflictionTolerance = new int[GC.getNumPromotionInfos()];
+		g_paiTempAfflictionTypeTolerance = new int[GC.getNumPromotionLineInfos()];
+#endif // OUTBREAKS_AND_AFFLICTIONS
 		g_paiTempTrapImmunityUnitCombatCount = new int[GC.getNumUnitCombatInfos()]();
 		g_paiTempTargetUnitCombatCount = new int[GC.getNumUnitCombatInfos()]();
 		g_paiTempExtraTrapDisableUnitCombatType = new int[GC.getNumUnitCombatInfos()]();
 		g_paiTempExtraTrapAvoidanceUnitCombatType = new int[GC.getNumUnitCombatInfos()]();
 		g_paiTempExtraTrapTriggerUnitCombatType = new int[GC.getNumUnitCombatInfos()]();
-		g_paiTempAfflictionTypeTolerance = new int[GC.getNumPromotionLineInfos()];
 		g_paiTempFortitudeModifierTypeAmount = new int[GC.getNumPromotionInfos()];
 		g_paiTempFortitudeModifierAmount = new int[GC.getNumPromotionLineInfos()];
 		g_paiTempTrapSetWithPromotionCount = new int[GC.getNumPromotionInfos()];
 		g_paiTempPromotionFromTraitCount = new int [GC.getNumPromotionInfos()];
+#ifdef OUTBREAKS_AND_AFFLICTIONS
 		g_paiTempAfflictOnAttackTypeProbability = new int[GC.getNumPromotionLineInfos()];
 		g_paiTempAfflictOnAttackTypeCount = new int[GC.getNumPromotionLineInfos()];
 		g_paiTempAfflictOnAttackTypeImmediateCount = new int[GC.getNumPromotionLineInfos()];
@@ -182,6 +189,7 @@ m_Properties(this)
 		g_paiTempAfflictOnAttackTypeDistanceCount = new int[GC.getNumPromotionLineInfos()];
 		g_paiTempAfflictOnAttackTypeAttemptedCount = new int[GC.getNumPromotionLineInfos()];
 		g_paiTempDistanceAttackCommunicability = new int[GC.getNumPromotionLineInfos()];
+#endif // OUTBREAKS_AND_AFFLICTIONS
 		g_pabTempValidBuildUp = new bool[GC.getNumPromotionLineInfos()];
 		g_paiTempExtraUnitCombatModifier = new int[GC.getNumUnitCombatInfos()];
 		g_pabTempHasPromotion = new bool[GC.getNumPromotionInfos()];
@@ -22043,11 +22051,13 @@ void CvUnit::read(FDataStreamBase* pStream)
 	// Read compressed data format
 	for (int iI = 0; iI < GC.getNumPromotionInfos(); iI++)
 	{
+#ifdef OUTBREAKS_AND_AFFLICTIONS
 		g_paiTempAfflictOnAttackCount[iI] = 0;
 		g_paiTempCureAfflictionCount[iI] = 0;
 		g_paiTempAfflictionTurnCount[iI] = 0;
 		g_paiTempAfflictionHitCount[iI] = 0;
 		g_paiTempAfflictionTolerance[iI] = 0;
+#endif // OUTBREAKS_AND_AFFLICTIONS
 		g_paiTempFortitudeModifierTypeAmount[iI] = 0;
 		g_paiTempTrapSetWithPromotionCount[iI] = 0;
 		g_paiTempPromotionFromTraitCount[iI] = 0;
@@ -22062,11 +22072,13 @@ void CvUnit::read(FDataStreamBase* pStream)
 
 			if ( iNewIndex != NO_PROMOTION )
 			{
+#ifdef OUTBREAKS_AND_AFFLICTIONS
 				WRAPPER_READ_DECORATED(wrapper, "CvUnit", &g_paiTempAfflictOnAttackCount[iNewIndex], "afflictOnAttack");
 				WRAPPER_READ_DECORATED(wrapper, "CvUnit", &g_paiTempCureAfflictionCount[iNewIndex], "cureAffliction");
 				WRAPPER_READ_DECORATED(wrapper, "CvUnit", &g_paiTempAfflictionTurnCount[iNewIndex], "afflictionTurn");
 				WRAPPER_READ_DECORATED(wrapper, "CvUnit", &g_paiTempAfflictionHitCount[iNewIndex], "afflictionHit");
 				WRAPPER_READ_DECORATED(wrapper, "CvUnit", &g_paiTempAfflictionTolerance[iNewIndex], "afflictionTolerance");
+#endif // OUTBREAKS_AND_AFFLICTIONS
 				WRAPPER_READ_DECORATED(wrapper, "CvUnit", &g_paiTempFortitudeModifierTypeAmount[iNewIndex], "fortitudeModifierType");
 				WRAPPER_READ_DECORATED(wrapper, "CvUnit", &g_paiTempTrapSetWithPromotionCount[iNewIndex], "trapSetWithPromotionType");
 				WRAPPER_READ_DECORATED(wrapper, "CvUnit", &g_paiTempPromotionFromTraitCount[iNewIndex], "promotionFromTraitCount");
@@ -22077,22 +22089,27 @@ void CvUnit::read(FDataStreamBase* pStream)
 	for (int iI = 0; iI < GC.getNumPromotionInfos(); iI++)
 	{
 		if (
+#ifdef OUTBREAKS_AND_AFFLICTIONS
 		   0 != g_paiTempAfflictOnAttackCount[iI]
 		|| 0 != g_paiTempCureAfflictionCount[iI]
 		|| 0 != g_paiTempAfflictionTurnCount[iI]
 		|| 0 != g_paiTempAfflictionHitCount[iI]
 		|| 0 != g_paiTempAfflictionTolerance[iI]
-		|| 0 != g_paiTempFortitudeModifierTypeAmount[iI]
+		||
+#endif // OUTBREAKS_AND_AFFLICTIONS
+		   0 != g_paiTempFortitudeModifierTypeAmount[iI]
 		|| 0 != g_paiTempTrapSetWithPromotionCount[iI]
 		|| 0 != g_paiTempPromotionFromTraitCount[iI])
 		{
 			PromotionKeyedInfo* info = findOrCreatePromotionKeyedInfo((PromotionTypes)iI);
 
+#ifdef OUTBREAKS_AND_AFFLICTIONS
 			info->m_iAfflictOnAttackCount = g_paiTempAfflictOnAttackCount[iI];
 			info->m_iCureAfflictionCount = g_paiTempCureAfflictionCount[iI];
 			info->m_iAfflictionTurnCount = g_paiTempAfflictionTurnCount[iI];
 			info->m_iAfflictionHitCount = g_paiTempAfflictionHitCount[iI];
 			info->m_iAfflictionTolerance = g_paiTempAfflictionTolerance[iI];
+#endif // OUTBREAKS_AND_AFFLICTIONS
 			info->m_iFortitudeModifierTypeAmount = g_paiTempFortitudeModifierTypeAmount[iI];
 			info->m_iTrapSetWithPromotionCount = g_paiTempTrapSetWithPromotionCount[iI];
 			info->m_iPromotionFromTraitCount = g_paiTempPromotionFromTraitCount[iI];
@@ -22583,7 +22600,7 @@ void CvUnit::read(FDataStreamBase* pStream)
 			if ( iNewIndex != NO_PROMOTIONLINE )
 			{
 				WRAPPER_READ_DECORATED(wrapper, "CvUnit", &g_pabTempValidBuildUp[iNewIndex], "validBuildUp");
-//#ifdef OUTBREAKS_AND_AFFLICTIONS
+#ifdef OUTBREAKS_AND_AFFLICTIONS
 				WRAPPER_READ_DECORATED(wrapper, "CvUnit", &g_paiTempAfflictOnAttackTypeProbability[iNewIndex], "afflictOnAttackTypeProb");
 				WRAPPER_READ_DECORATED(wrapper, "CvUnit", &g_paiTempAfflictOnAttackTypeCount[iNewIndex], "afflictOnAttackTypeCount");
 				WRAPPER_READ_DECORATED(wrapper, "CvUnit", &g_paiTempAfflictOnAttackTypeImmediateCount[iNewIndex], "afflictOnAttackTypeImmediateCount");
@@ -22596,7 +22613,7 @@ void CvUnit::read(FDataStreamBase* pStream)
 				WRAPPER_READ_DECORATED(wrapper, "CvUnit", &g_paiTempDistanceAttackCommunicability[iNewIndex], "distanceAttackCommunicability");
 				WRAPPER_READ_DECORATED(wrapper, "CvUnit", &g_paiTempAfflictOnAttackTypeMeleeCount[iNewIndex], "afflictOnAttackTypeMeleeCount");
 				WRAPPER_READ_DECORATED(wrapper, "CvUnit", &g_paiTempAfflictOnAttackTypeDistanceCount[iNewIndex], "afflictOnAttackTypeDistanceCount");
-//#endif
+#endif
 			}
 		}
 	} while(iI != -1);

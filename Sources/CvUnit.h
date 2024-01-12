@@ -202,11 +202,13 @@ class PromotionKeyedInfo
 {
 public:
 	PromotionKeyedInfo() :	m_bHasPromotion(false),
+#ifdef OUTBREAKS_AND_AFFLICTIONS
 							m_iAfflictOnAttackCount(0),
 							m_iCureAfflictionCount(0),
 							m_iAfflictionTurnCount(0),
 							m_iAfflictionHitCount(0),
 							m_iAfflictionTolerance(0),
+#endif // OUTBREAKS_AND_AFFLICTIONS
 							m_iFortitudeModifierTypeAmount(0),
 							m_iPromotionFreeCount(0),
 							m_iTrapSetWithPromotionCount(0),
@@ -217,11 +219,13 @@ public:
 	bool Empty() const
 	{
 		return (!m_bHasPromotion &&
+#ifdef OUTBREAKS_AND_AFFLICTIONS
 			m_iAfflictOnAttackCount == 0 &&
 			m_iCureAfflictionCount == 0 &&
 			m_iAfflictionTurnCount == 0 &&
 			m_iAfflictionHitCount == 0 &&
 			m_iAfflictionTolerance == 0 &&
+#endif // OUTBREAKS_AND_AFFLICTIONS
 			m_iFortitudeModifierTypeAmount == 0 &&
 			m_iPromotionFreeCount == 0 &&
 			m_iTrapSetWithPromotionCount == 0 &&
@@ -230,11 +234,13 @@ public:
 
 	//TB Combat Mods Begin
 	bool	m_bHasPromotion;
+#ifdef OUTBREAKS_AND_AFFLICTIONS
 	int		m_iAfflictOnAttackCount;
 	int		m_iCureAfflictionCount;
 	int		m_iAfflictionTurnCount;
 	int		m_iAfflictionHitCount;
 	int		m_iAfflictionTolerance;
+#endif // OUTBREAKS_AND_AFFLICTIONS
 	int		m_iFortitudeModifierTypeAmount;
 	int		m_iPromotionFreeCount;
 	int		m_iTrapSetWithPromotionCount;
@@ -1004,8 +1010,8 @@ public:
 	bool canAnimalIgnoresImprovements() const;
 	bool canAnimalIgnoresCities() const;
 	bool canOnslaught() const;
-	bool hasCureAfflictionType(PromotionLineTypes ePromotionLineType) const;
 #ifdef OUTBREAKS_AND_AFFLICTIONS
+	bool hasCureAfflictionType(PromotionLineTypes ePromotionLineType) const;
 	int fortitudeTotal() const;
 #endif
 	int aidTotal(PropertyTypes eProperty) const;
@@ -1358,9 +1364,11 @@ public:
 	bool mayOnslaught() const;
 	void changeOnslaughtCount(int iChange);
 
+#ifdef OUTBREAKS_AND_AFFLICTIONS
 	int getCureAfflictionCount(PromotionLineTypes ePromotionLineType) const;
 	bool hasExtraCureAffliction(PromotionLineTypes ePromotionLineType) const;
 	void changeCureAfflictionCount(PromotionLineTypes ePromotionLineType, int iChange);
+#endif // OUTBREAKS_AND_AFFLICTIONS
 
 	int getExtraFortitude (bool bIgnoreCommanders = false) const;
 	void changeExtraFortitude (int iChange);
@@ -2904,6 +2912,7 @@ public:
 private:
 	//	static buffers allocated once and used during read and write only
 	static int*	g_paiTempPromotionFreeCount;
+#ifdef OUTBREAKS_AND_AFFLICTIONS
 	static int*	g_paiTempAfflictOnAttackCount;
 	static int*	g_paiTempCureAfflictionCount;
 	static int*	g_paiTempCureAfflictionTypeCount;
@@ -2912,17 +2921,19 @@ private:
 	static int*	g_paiTempAfflictionTurnTypeCount;
 	static int*	g_paiTempAfflictionHitCount;
 	static int*	g_paiTempAfflictionTolerance;
+	static int*	g_paiTempAfflictionTypeTolerance;
+#endif // OUTBREAKS_AND_AFFLICTIONS
 	static int*	g_paiTempTrapImmunityUnitCombatCount;
 	static int*	g_paiTempTargetUnitCombatCount;
 	static int*	g_paiTempExtraTrapDisableUnitCombatType;
 	static int*	g_paiTempExtraTrapAvoidanceUnitCombatType;
 	static int*	g_paiTempExtraTrapTriggerUnitCombatType;
-	static int*	g_paiTempAfflictionTypeTolerance;
 	static int*	g_paiTempFortitudeModifierTypeAmount;
 	static int*	g_paiTempFortitudeModifierAmount;
 	static int*	g_paiTempTrapSetWithPromotionCount;
 	static int* g_paiTempPromotionFromTraitCount;
 	static bool*	g_pabTempValidBuildUp;
+#ifdef OUTBREAKS_AND_AFFLICTIONS
 	static int* g_paiTempAfflictOnAttackTypeProbability;
 	static int* g_paiTempAfflictOnAttackTypeCount;
 	static int* g_paiTempAfflictOnAttackTypeImmediateCount;
@@ -2930,6 +2941,7 @@ private:
 	static int* g_paiTempDistanceAttackCommunicability;
 	static int* g_paiTempAfflictOnAttackTypeMeleeCount;
 	static int* g_paiTempAfflictOnAttackTypeDistanceCount;
+#endif // OUTBREAKS_AND_AFFLICTIONS
 	static int*	g_paiTempExtraUnitCombatModifier;
 	static bool* g_pabTempHasPromotion;
 	static bool* g_pabTempHasUnitCombat;
