@@ -860,7 +860,7 @@ bool CvImprovementInfo::read(CvXMLLoadUtility* pXML)
 	pXML->GetOptionalChildXmlValByName(&m_bPeakMakesValid, L"bPeakMakesValid");
 	pXML->GetOptionalChildXmlValByName(&m_iDepletionRand, L"iDepletionRand");
 
-	pXML->GetOptionalTypeEnum(m_iPrereqTech, L"PrereqTech");
+	pXML->GetOptionalInfoTypeValByName(&m_iPrereqTech, L"PrereqTech");
 
 	// initialize the boolean list to the correct size and all the booleans to false
 	//FAssertMsg((GC.getNumTraitInfos() > 0) && (NUM_YIELD_TYPES > 0),"either the number of trait infos is zero or less or the number of yield types is zero or less");
@@ -913,9 +913,9 @@ bool CvImprovementInfo::read(CvXMLLoadUtility* pXML)
 	pXML->GetOptionalChildXmlValByName(&m_bNotOnAnyBonus, L"bNotOnAnyBonus");
 	pXML->GetOptionalChildXmlValByName(&m_bNational, L"bNational");
 	pXML->GetOptionalChildXmlValByName(&m_bGlobal, L"bGlobal");
-	pXML->GetOptionalTypeEnumWithDelayedResolution(m_iImprovementPillage, L"ImprovementPillage");
-	pXML->GetOptionalTypeEnumWithDelayedResolution(m_iImprovementUpgrade, L"ImprovementUpgrade");
-	pXML->GetOptionalTypeEnumWithDelayedResolution(m_iBonusChange, L"BonusChange");
+	pXML->GetOptionalInfoTypeValByNameWithDelayedResolution(&m_iImprovementPillage, L"ImprovementPillage");
+	pXML->GetOptionalInfoTypeValByNameWithDelayedResolution(&m_iImprovementUpgrade, L"ImprovementUpgrade");
+	pXML->GetOptionalInfoTypeValByNameWithDelayedResolution(&m_iBonusChange, L"BonusChange");
 	pXML->SetOptionalVectorWithDelayedResolution(m_aiAlternativeImprovementUpgradeTypes, L"AlternativeImprovementUpgradeTypes");
 	pXML->SetOptionalVector(&m_aiFeatureChangeTypes, L"FeatureChangeTypes");
 	pXML->SetOptionalVector(&m_aiCategories, L"Categories");

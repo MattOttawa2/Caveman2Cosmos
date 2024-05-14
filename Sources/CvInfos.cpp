@@ -4716,20 +4716,11 @@ bool CvPromotionInfo::read(CvXMLLoadUtility* pXML)
 	}
 
 	pXML->GetOptionalChildXmlValByName(m_szSound, L"Sound");
-
-	pXML->GetOptionalChildXmlValByName(szTextVal, L"LayerAnimationPath");
-	m_iLayerAnimationPath = pXML->GetInfoClass(szTextVal);
-
-	pXML->GetOptionalTypeEnum(m_iTechPrereq, L"TechPrereq");
-
-	pXML->GetOptionalChildXmlValByName(szTextVal, L"StateReligionPrereq");
-	m_iStateReligionPrereq = pXML->GetInfoClass(szTextVal);
-
-	pXML->GetOptionalChildXmlValByName(szTextVal, L"MinEraType");
-	m_iMinEraType = pXML->GetInfoClass(szTextVal);
-
-	pXML->GetOptionalChildXmlValByName(szTextVal, L"MaxEraType");
-	m_iMaxEraType = pXML->GetInfoClass(szTextVal);
+	pXML->GetOptionalInfoTypeValByName(&m_iLayerAnimationPath, L"LayerAnimationPath");
+	pXML->GetOptionalInfoTypeValByName(&m_iTechPrereq, L"TechPrereq");
+	pXML->GetOptionalInfoTypeValByName(&m_iStateReligionPrereq, L"StateReligionPrereq");
+	pXML->GetOptionalInfoTypeValByName(&m_iMinEraType, L"MinEraType");
+	pXML->GetOptionalInfoTypeValByName(&m_iMaxEraType, L"MaxEraType");
 
 	pXML->GetOptionalChildXmlValByName(&m_bLeader, L"bLeader");
 	if (m_bLeader)
@@ -4814,14 +4805,11 @@ bool CvPromotionInfo::read(CvXMLLoadUtility* pXML)
 	//	Koshling - enhanced mountaineering mode to differentiate between ability to move through
 	//	mountains, and ability to lead a stack through mountains
 	pXML->GetOptionalChildXmlValByName(&m_bCanLeadThroughPeaks, L"bCanLeadThroughPeaks");
-	pXML->GetOptionalChildXmlValByName(szTextVal, L"ObsoleteTech");
-	m_iObsoleteTech = static_cast<TechTypes>(pXML->GetInfoClass(szTextVal));
+	pXML->GetOptionalInfoTypeValByName(&m_iObsoleteTech, L"ObsoleteTech");
 	pXML->GetOptionalChildXmlValByName(&m_iControlPoints, L"iControlPoints");
 	pXML->GetOptionalChildXmlValByName(&m_iCommandRange, L"iCommandRange");
 	pXML->GetOptionalChildXmlValByName(&m_bZoneOfControl, L"bZoneOfControl");
-
-	pXML->GetOptionalChildXmlValByName(szTextVal, L"IgnoreTerrainDamage");
-	m_iIgnoreTerrainDamage = pXML->GetInfoClass(szTextVal);
+	pXML->GetOptionalInfoTypeValByName(&m_iIgnoreTerrainDamage, L"IgnoreTerrainDamage");
 
 	m_PropertyManipulators.read(pXML);
 
@@ -4830,29 +4818,14 @@ bool CvPromotionInfo::read(CvXMLLoadUtility* pXML)
 	pXML->GetOptionalChildXmlValByName(m_szRenamesUnitTo, L"RenamesUnitTo");
 
 	//Textual References
-	pXML->GetOptionalChildXmlValByName(szTextVal, L"PromotionLine");
-	m_ePromotionLine = (PromotionLineTypes) pXML->GetInfoClass(szTextVal);
-
-	pXML->GetOptionalChildXmlValByName(szTextVal, L"ReplacesUnitCombat");
-	m_eReplacesUnitCombat = (UnitCombatTypes) pXML->GetInfoClass(szTextVal);
-
-	pXML->GetOptionalChildXmlValByName(szTextVal, L"DomainCargoChange");
-	m_eDomainCargoChange = (DomainTypes) pXML->GetInfoClass(szTextVal);
-
-	pXML->GetOptionalChildXmlValByName(szTextVal, L"SpecialCargoChange");
-	m_eSpecialCargoChange = (SpecialUnitTypes) pXML->GetInfoClass(szTextVal);
-
-	pXML->GetOptionalChildXmlValByName(szTextVal, L"SpecialCargoPrereq");
-	m_eSpecialCargoPrereq = (SpecialUnitTypes) pXML->GetInfoClass(szTextVal);
-
-	pXML->GetOptionalChildXmlValByName(szTextVal, L"SMNotSpecialCargoChange");
-	m_eSMNotSpecialCargoChange = (SpecialUnitTypes) pXML->GetInfoClass(szTextVal);
-
-	pXML->GetOptionalChildXmlValByName(szTextVal, L"SMNotSpecialCargoPrereq");
-	m_eSMNotSpecialCargoPrereq = (SpecialUnitTypes) pXML->GetInfoClass(szTextVal);
-
-	pXML->GetOptionalChildXmlValByName(szTextVal, L"SetSpecialUnit");
-	m_eSetSpecialUnit = (SpecialUnitTypes) pXML->GetInfoClass(szTextVal);
+	pXML->GetOptionalInfoTypeValByName(&m_ePromotionLine, L"PromotionLine");
+	pXML->GetOptionalInfoTypeValByName(&m_eReplacesUnitCombat, L"ReplacesUnitCombat");
+	pXML->GetOptionalInfoTypeValByName(&m_eDomainCargoChange, L"DomainCargoChange");
+	pXML->GetOptionalInfoTypeValByName(&m_eSpecialCargoChange, L"SpecialCargoChange");
+	pXML->GetOptionalInfoTypeValByName(&m_eSpecialCargoPrereq, L"SpecialCargoPrereq");
+	pXML->GetOptionalInfoTypeValByName(&m_eSMNotSpecialCargoChange, L"SMNotSpecialCargoChange");
+	pXML->GetOptionalInfoTypeValByName(&m_eSMNotSpecialCargoPrereq, L"SMNotSpecialCargoPrereq");
+	pXML->GetOptionalInfoTypeValByName(&m_eSetSpecialUnit, L"SetSpecialUnit");
 	//integers
 	pXML->GetOptionalChildXmlValByName(&m_iAttackCombatModifierChange, L"iAttackCombatModifierChange");
 	pXML->GetOptionalChildXmlValByName(&m_iDefenseCombatModifierChange, L"iDefenseCombatModifierChange");
@@ -6837,7 +6810,7 @@ bool CvCommandInfo::read(CvXMLLoadUtility* pXML)
 		return false;
 	}
 
-	pXML->GetOptionalTypeEnum(m_iAutomate, L"Automate");
+	pXML->GetOptionalInfoTypeValByName(&m_iAutomate, L"Automate");
 	pXML->GetOptionalChildXmlValByName(&m_bConfirmCommand, L"bConfirmCommand");
 	pXML->GetOptionalChildXmlValByName(&m_bVisible, L"bVisible");
 	pXML->GetOptionalChildXmlValByName(&m_bAll, L"bAll");
@@ -6915,8 +6888,8 @@ bool CvAutomateInfo::read(CvXMLLoadUtility* pXML)
 		return false;
 	}
 
-	pXML->GetOptionalTypeEnum(m_iCommand, L"Command");
-	pXML->GetOptionalTypeEnum(m_iAutomate, L"Automate");
+	pXML->GetOptionalInfoTypeValByName(&m_iCommand, L"Command");
+	pXML->GetOptionalInfoTypeValByName(&m_iAutomate, L"Automate");
 	pXML->GetOptionalChildXmlValByName(&m_bConfirmCommand, L"bConfirmCommand");
 	pXML->GetOptionalChildXmlValByName(&m_bVisible, L"bVisible");
 
@@ -7344,17 +7317,10 @@ bool CvSpawnInfo::read(CvXMLLoadUtility* pXML)
 		return false;
 	}
 
-	pXML->GetChildXmlValByName(szTextVal, L"UnitType");
-	m_eUnitType = (UnitTypes)pXML->GetInfoClass(szTextVal);
-
-	pXML->GetOptionalChildXmlValByName(szTextVal, L"PrereqTech");
-	m_ePrereqTech = (TechTypes) pXML->GetInfoClass(szTextVal);
-
-	pXML->GetOptionalChildXmlValByName(szTextVal, L"ObsoleteTech");
-	m_eObsoleteTechType = (TechTypes) pXML->GetInfoClass(szTextVal);
-
-	pXML->GetOptionalTypeEnum(m_iPlayerType, L"PlayerType");
-
+	pXML->GetOptionalInfoTypeValByName(&m_eUnitType, L"UnitType");
+	pXML->GetOptionalInfoTypeValByName(&m_ePrereqTech, L"PrereqTech");
+	pXML->GetOptionalInfoTypeValByName(&m_eObsoleteTechType, L"ObsoleteTech");
+	pXML->GetOptionalInfoTypeValByName(&m_iPlayerType, L"PlayerType");
 	pXML->GetOptionalChildXmlValByName(&m_iTurns, L"iTurns");
 	pXML->GetOptionalChildXmlValByName(&m_iGlobalTurns, L"iGlobalTurns", -1);
 	pXML->GetOptionalChildXmlValByName(&m_iMaxLocalDensity, L"iMaxLocalDensity");
@@ -9212,16 +9178,10 @@ bool CvCivicInfo::read(CvXMLLoadUtility* pXML)
 	int iNumSibs=0;				// the number of siblings the current xml node has
 	int iIndex;
 
-	pXML->GetOptionalChildXmlValByName(szTextVal, L"CivicOptionType");
-	m_iCivicOptionType = pXML->GetInfoClass(szTextVal);
-
-	pXML->GetOptionalTypeEnum(m_iTechPrereq, L"TechPrereq");
-
+	pXML->GetOptionalInfoTypeValByName(&m_iCivicOptionType, L"CivicOptionType");
+	pXML->GetOptionalInfoTypeValByName(&m_iTechPrereq, L"TechPrereq");
 	pXML->GetOptionalChildXmlValByName(&m_iAnarchyLength, L"iAnarchyLength");
-
-	pXML->GetOptionalChildXmlValByName(szTextVal, L"Upkeep");
-	m_iUpkeep = pXML->GetInfoClass(szTextVal);
-
+	pXML->GetOptionalInfoTypeValByName(&m_iUpkeep, L"Upkeep");
 	pXML->GetOptionalChildXmlValByName(&m_iAIWeight, L"iAIWeight");
 	pXML->GetOptionalChildXmlValByName(&m_iGreatPeopleRateModifier, L"iGreatPeopleRateModifier");
 	pXML->GetOptionalChildXmlValByName(&m_iGreatGeneralRateModifier, L"iGreatGeneralRateModifier");
@@ -10322,21 +10282,14 @@ bool CvSpecialBuildingInfo::isValid() const
 
 bool CvSpecialBuildingInfo::read(CvXMLLoadUtility* pXML)
 {
-	CvString szTextVal;
 	if (!CvInfoBase::read(pXML))
 	{
 		return false;
 	}
-	pXML->GetOptionalChildXmlValByName(szTextVal, L"ObsoleteTech");
-	m_iObsoleteTech = static_cast<TechTypes>(pXML->GetInfoClass(szTextVal));
-
-	pXML->GetOptionalTypeEnum(m_iTechPrereq, L"TechPrereq");
-
-	pXML->GetOptionalChildXmlValByName(szTextVal, L"TechPrereqAnyone");
-	m_iTechPrereqAnyone = pXML->GetInfoClass(szTextVal);
-
+	pXML->GetOptionalInfoTypeValByName(&m_iObsoleteTech, L"ObsoleteTech");
+	pXML->GetOptionalInfoTypeValByName(&m_iTechPrereq, L"TechPrereq");
+	pXML->GetOptionalInfoTypeValByName(&m_iTechPrereqAnyone, L"TechPrereqAnyone");
 	pXML->GetOptionalChildXmlValByName(&m_iMaxPlayerInstances, L"iMaxPlayerInstances", -1);
-
 	pXML->GetOptionalChildXmlValByName(&m_bValid, L"bValid");
 
 	return true;
@@ -10829,10 +10782,10 @@ bool CvCivilizationInfo::read(CvXMLLoadUtility* pXML)
 
 	pXML->GetOptionalChildXmlValByName(m_szShortDescriptionKey, L"ShortDescription");
 	pXML->GetOptionalChildXmlValByName(m_szAdjectiveKey, L"Adjective");
-	pXML->GetOptionalTypeEnum(m_iDefaultPlayerColor, L"DefaultPlayerColor");
+	pXML->GetOptionalInfoTypeValByName(&m_iDefaultPlayerColor, L"DefaultPlayerColor");
 	pXML->GetOptionalChildXmlValByName(m_szArtDefineTag, L"ArtDefineTag");
-	pXML->GetOptionalTypeEnum(m_iArtStyleType, L"ArtStyleType");
-	pXML->GetOptionalTypeEnum(m_iUnitArtStyleType, L"UnitArtStyleType");
+	pXML->GetOptionalInfoTypeValByName(&m_iArtStyleType, L"ArtStyleType");
+	pXML->GetOptionalInfoTypeValByName(&m_iUnitArtStyleType, L"UnitArtStyleType");
 
 	pXML->GetOptionalChildXmlValByName(szTextVal, L"CivilizationSelectionSound");
 	m_iSelectionSoundScriptId = (szTextVal.GetLength() > 0) ? gDLL->getAudioTagIndex( szTextVal.GetCString(), AUDIOTAG_3DSCRIPT ) : -1;
@@ -10904,7 +10857,7 @@ bool CvCivilizationInfo::read(CvXMLLoadUtility* pXML)
 	pXML->GetOptionalChildXmlValByName(&m_iSpawnRateModifier, L"iSpawnRateModifier");
 	pXML->GetOptionalChildXmlValByName(&m_iSpawnRateNPCPeaceModifier, L"iSpawnRateNPCPeaceModifier");
 	pXML->GetOptionalChildXmlValByName(&m_bStronglyRestricted, L"bStronglyRestricted");
-	pXML->GetOptionalTypeEnumWithDelayedResolution(m_iDerivativeCiv, L"DerivativeCiv");
+	pXML->GetOptionalInfoTypeValByNameWithDelayedResolution(&m_iDerivativeCiv, L"DerivativeCiv");
 
 	return true;
 }
@@ -12316,11 +12269,7 @@ bool CvBuildInfo::isCategory(int i) const
 bool CvBuildInfo::read(CvXMLLoadUtility* pXML)
 {
 	PROFILE_EXTRA_FUNC();
-	CvString szTextVal;
-	CvString szTextVal2;
-	CvString szTextVal3;
-	CvString szTextVal4;
-	CvString szTextVal5;
+
 	if (!CvHotkeyInfo::read(pXML))
 	{
 		return false;
@@ -12328,22 +12277,16 @@ bool CvBuildInfo::read(CvXMLLoadUtility* pXML)
 
 	CvInfoUtil(this).readXml(pXML);
 
-	pXML->GetOptionalTypeEnum(m_iTechPrereq, L"PrereqTech");
+	pXML->GetOptionalInfoTypeValByName(&m_iTechPrereq, L"PrereqTech");
 	pXML->GetOptionalChildXmlValByName(&m_iTime, L"iTime");
 	pXML->GetOptionalChildXmlValByName(&m_iCost, L"iCost");
 	pXML->GetOptionalChildXmlValByName(&m_bKill, L"bKill");
-	pXML->GetOptionalTypeEnum(m_iObsoleteTech, L"ObsoleteTech");
-	pXML->GetOptionalTypeEnum(m_iImprovement, L"ImprovementType");
-	pXML->GetOptionalChildXmlValByName(szTextVal, L"RouteType");
-	m_iRoute = pXML->GetInfoClass(szTextVal);
-
-	pXML->GetOptionalChildXmlValByName(szTextVal, L"TerrainChange");
-	m_iTerrainChange = pXML->GetInfoClass(szTextVal);
-	pXML->GetOptionalChildXmlValByName(szTextVal, L"FeatureChange");
-	m_iFeatureChange = pXML->GetInfoClass(szTextVal);
-
-	pXML->GetOptionalChildXmlValByName(szTextVal, L"EntityEvent");
-	m_iEntityEvent = pXML->GetInfoClass(szTextVal);
+	pXML->GetOptionalInfoTypeValByName(&m_iObsoleteTech, L"ObsoleteTech");
+	pXML->GetOptionalInfoTypeValByName(&m_iImprovement, L"ImprovementType");
+	pXML->GetOptionalInfoTypeValByName(&m_iRoute, L"RouteType");
+	pXML->GetOptionalInfoTypeValByName(&m_iTerrainChange, L"TerrainChange");
+	pXML->GetOptionalInfoTypeValByName(&m_iFeatureChange, L"FeatureChange");
+	pXML->GetOptionalInfoTypeValByName(&m_iEntityEvent, L"EntityEvent");
 
 	pXML->SetFeatureStruct(&m_paiFeatureTech, &m_paiFeatureTime, &m_paiFeatureProduction, &m_pabFeatureRemove);
 
@@ -12363,10 +12306,8 @@ bool CvBuildInfo::read(CvXMLLoadUtility* pXML)
 			{
 				do
 				{
-					pXML->GetChildXmlValByName(szTextVal, L"TerrainType");
-					m_aTerrainStructs[i].eTerrain = (TerrainTypes)pXML->GetInfoClass(szTextVal);
-					pXML->GetChildXmlValByName(szTextVal, L"PrereqTech");
-					m_aTerrainStructs[i].ePrereqTech = (TechTypes)pXML->GetInfoClass(szTextVal);
+					pXML->GetInfoTypeValByName(&m_aTerrainStructs[i].eTerrain, L"TerrainType");
+					pXML->GetOptionalInfoTypeValByName(&m_aTerrainStructs[i].ePrereqTech, L"PrereqTech");
 					pXML->GetChildXmlValByName(&(m_aTerrainStructs[i].iTime), L"iTime");
 					i++;
 				} while(pXML->TryMoveToXmlNextSibling(L"TerrainStruct"));
@@ -12387,18 +12328,13 @@ bool CvBuildInfo::read(CvXMLLoadUtility* pXML)
 			{
 				do
 				{
-					pXML->GetChildXmlValByName(szTextVal, L"BonusType");
-					m_aPlaceBonusTypes[i].eBonus = (BonusTypes)pXML->GetInfoClass(szTextVal);
+					pXML->GetInfoTypeValByName(&m_aPlaceBonusTypes[i].eBonus, L"BonusType");
 					pXML->GetChildXmlValByName(&(m_aPlaceBonusTypes[i].iProbability), L"iProbability");
 					pXML->GetChildXmlValByName(&(m_aPlaceBonusTypes[i].bRequiresAccess), L"bRequiresAccess");
-					pXML->GetChildXmlValByName(szTextVal, L"TerrainType");
-					m_aPlaceBonusTypes[i].ePrereqTerrain = (TerrainTypes)pXML->GetInfoClass(szTextVal);
-					pXML->GetChildXmlValByName(szTextVal, L"FeatureType");
-					m_aPlaceBonusTypes[i].ePrereqFeature = (FeatureTypes)pXML->GetInfoClass(szTextVal);
-					pXML->GetChildXmlValByName(szTextVal, L"MapCategoryType");
-					m_aPlaceBonusTypes[i].ePrereqMapCategory = (MapCategoryTypes)pXML->GetInfoClass(szTextVal);
-					pXML->GetChildXmlValByName(szTextVal, L"TechType");
-					m_aPlaceBonusTypes[i].ePrereqTech = (TechTypes)pXML->GetInfoClass(szTextVal);
+					pXML->GetOptionalInfoTypeValByName(&m_aPlaceBonusTypes[i].ePrereqTerrain, L"TerrainType");
+					pXML->GetOptionalInfoTypeValByName(&m_aPlaceBonusTypes[i].ePrereqFeature, L"FeatureType");
+					pXML->GetOptionalInfoTypeValByName(&m_aPlaceBonusTypes[i].ePrereqMapCategory, L"MapCategoryType");
+					pXML->GetOptionalInfoTypeValByName(&m_aPlaceBonusTypes[i].ePrereqTech, L"TechType");
 					i++;
 				} while(pXML->TryMoveToXmlNextSibling(L"PlaceBonusType"));
 			}
@@ -12656,7 +12592,6 @@ const char* CvGoodyInfo::getSound() const
 
 bool CvGoodyInfo::read(CvXMLLoadUtility* pXML)
 {
-	CvString szTextVal;
 	if (!CvInfoBase::read(pXML))
 	{
 		return false;
@@ -12676,18 +12611,10 @@ bool CvGoodyInfo::read(CvXMLLoadUtility* pXML)
 	pXML->GetOptionalChildXmlValByName(&m_bTech, L"bTech");
 	pXML->GetOptionalChildXmlValByName(&m_bBad, L"bBad");
 	pXML->GetOptionalChildXmlValByName(&m_bNaval, L"bNaval");
-
-	pXML->GetOptionalChildXmlValByName(szTextVal, L"FreeUnit");
-	m_iGoodyUnit = pXML->GetInfoClass(szTextVal);
-
-	pXML->GetOptionalChildXmlValByName(szTextVal, L"BarbarianUnit");
-	m_iBarbarianUnit = pXML->GetInfoClass(szTextVal);
-
-	pXML->GetOptionalChildXmlValByName(szTextVal, L"EraType");
-	m_iEraType = pXML->GetInfoClass(szTextVal);
-	pXML->GetOptionalChildXmlValByName(szTextVal, L"NotEraType");
-	m_iNotEraType = pXML->GetInfoClass(szTextVal);
-
+	pXML->GetOptionalInfoTypeValByName(&m_iGoodyUnit, L"FreeUnit");
+	pXML->GetOptionalInfoTypeValByName(&m_iBarbarianUnit, L"BarbarianUnit");
+	pXML->GetOptionalInfoTypeValByName(&m_iEraType, L"EraType");
+	pXML->GetOptionalInfoTypeValByName(&m_iNotEraType, L"NotEraType");
 	pXML->GetOptionalChildXmlValByName(&m_iBarbarianUnitProb, L"iBarbarianUnitProb");
 	pXML->GetOptionalChildXmlValByName(&m_iMinBarbarians, L"iMinBarbarians");
 
@@ -16455,13 +16382,12 @@ int CvProcessInfo::getProductionToCommerceModifier(int i) const
 
 bool CvProcessInfo::read(CvXMLLoadUtility* pXML)
 {
-	CvString szTextVal;
 	if (!CvInfoBase::read(pXML))
 	{
 		return false;
 	}
 
-	pXML->GetOptionalTypeEnum(m_iTechPrereq, L"TechPrereq");
+	pXML->GetOptionalInfoTypeValByName(&m_iTechPrereq, L"TechPrereq");
 
 	if (pXML->TryMoveToXmlFirstChild(L"ProductionToCommerceModifiers"))
 	{
@@ -16918,11 +16844,6 @@ const char* CvProjectInfo::getCreateSound() const
 	return m_szCreateSound;
 }
 
-void CvProjectInfo::setCreateSound(const char* szVal)
-{
-	m_szCreateSound = szVal;
-}
-
 // Arrays
 
 int CvProjectInfo::getBonusProductionModifier(int i) const
@@ -17029,10 +16950,8 @@ bool CvProjectInfo::read(CvXMLLoadUtility* pXML)
 		return false;
 	}
 
-	pXML->GetOptionalChildXmlValByName(szTextVal, L"VictoryPrereq");
-	m_iVictoryPrereq = pXML->GetInfoClass(szTextVal);
-
-	pXML->GetOptionalTypeEnum(m_iTechPrereq, L"TechPrereq");
+	pXML->GetOptionalInfoTypeValByName(&m_iVictoryPrereq, L"VictoryPrereq");
+	pXML->GetOptionalInfoTypeValByName(&m_iTechPrereq, L"TechPrereq");
 	pXML->GetOptionalChildXmlValByName(&m_iMaxGlobalInstances, L"iMaxGlobalInstances", -1);
 	pXML->GetOptionalChildXmlValByName(&m_iMaxTeamInstances, L"iMaxTeamInstances", -1);
 	pXML->GetOptionalChildXmlValByName(&m_iProductionCost, L"iCost");
@@ -17042,12 +16961,8 @@ bool CvProjectInfo::read(CvXMLLoadUtility* pXML)
 	pXML->GetOptionalChildXmlValByName(&m_iDistanceMaintenanceModifier, L"iDistanceMaintenanceModifier");
 	pXML->GetOptionalChildXmlValByName(&m_iNumCitiesMaintenanceModifier, L"iNumCitiesMaintenanceModifier");
 	pXML->GetOptionalChildXmlValByName(&m_iConnectedCityMaintenanceModifier, L"iConnectedCityMaintenanceModifier");
-	pXML->GetOptionalChildXmlValByName(szTextVal, L"EveryoneSpecialUnit");
-	m_iEveryoneSpecialUnit = pXML->GetInfoClass(szTextVal);
-
-	pXML->GetOptionalChildXmlValByName(szTextVal, L"EveryoneSpecialBuilding");
-	m_iEveryoneSpecialBuilding = pXML->GetInfoClass(szTextVal);
-
+	pXML->GetOptionalInfoTypeValByName(&m_iEveryoneSpecialUnit, L"EveryoneSpecialUnit");
+	pXML->GetOptionalInfoTypeValByName(&m_iEveryoneSpecialBuilding, L"EveryoneSpecialBuilding");
 	pXML->GetOptionalChildXmlValByName(&m_bSpaceship, L"bSpaceship");
 	pXML->GetOptionalChildXmlValByName(&m_bAllowsNukes, L"bAllowsNukes");
 	pXML->GetOptionalChildXmlValByName(m_szMovieArtDef, L"MovieDefineTag");
@@ -17058,8 +16973,7 @@ bool CvProjectInfo::read(CvXMLLoadUtility* pXML)
 	pXML->GetOptionalChildXmlValByName(&m_iVictoryDelayPercent, L"iVictoryDelayPercent");
 	pXML->GetOptionalChildXmlValByName(&m_iSuccessRate, L"iSuccessRate");
 
-	pXML->GetOptionalChildXmlValByName(szTextVal, L"CreateSound");
-	setCreateSound(szTextVal);
+	pXML->GetOptionalChildXmlValByName(m_szCreateSound, L"CreateSound");
 
 	pXML->GetOptionalChildXmlValByName(&m_iWorldHappiness, L"iWorldHappiness");
 	pXML->GetOptionalChildXmlValByName(&m_iGlobalHappiness, L"iGlobalHappiness");
@@ -17179,7 +17093,7 @@ void CvProjectInfo::copyNonDefaults(const CvProjectInfo* pClassInfo)
 	if (getVictoryDelayPercent() == iDefault) m_iVictoryDelayPercent = pClassInfo->getVictoryDelayPercent();
 	if (getSuccessRate() == iDefault) m_iSuccessRate = pClassInfo->getSuccessRate();
 
-	if (getCreateSound() == cDefault) setCreateSound(pClassInfo->getCreateSound());
+	if (getCreateSound() == cDefault) m_szCreateSound = pClassInfo->getCreateSound();
 
 
 	if (m_iAnyoneProjectPrereq == iTextDefault) m_iAnyoneProjectPrereq = pClassInfo->getAnyoneProjectPrereq();
@@ -17431,11 +17345,6 @@ const char* CvReligionInfo::getSound() const
 	return m_szSound;
 }
 
-void CvReligionInfo::setAdjectiveKey(const char* szVal)
-{
-	m_szAdjectiveKey = szVal;
-}
-
 const wchar_t* CvReligionInfo::getAdjectiveKey() const
 {
 	return m_szAdjectiveKey;
@@ -17502,15 +17411,13 @@ bool CvReligionInfo::isCategory(int i) const
 //
 bool CvReligionInfo::read(CvXMLLoadUtility* pXML)
 {
-	CvString szTextVal;
 	if (!CvHotkeyInfo::read(pXML))
 	{
 		return false;
 	}
 
-	pXML->GetOptionalTypeEnum(m_iTechPrereq, L"TechPrereq");
-	pXML->GetOptionalChildXmlValByName(szTextVal, L"FreeUnit");
-	GC.addDelayedResolution((int*)&m_iFreeUnit, szTextVal);
+	pXML->GetOptionalInfoTypeValByName(&m_iTechPrereq, L"TechPrereq");
+	pXML->GetOptionalInfoTypeValByNameWithDelayedResolution(&m_iFreeUnit, L"FreeUnit");
 	pXML->GetOptionalChildXmlValByName(&m_iNumFreeUnits, L"iFreeUnits");
 	pXML->GetOptionalChildXmlValByName(&m_iSpreadFactor, L"iSpreadFactor");
 	pXML->GetOptionalChildXmlValByName(&m_iTGAIndex, L"iTGAIndex");
@@ -17545,8 +17452,7 @@ bool CvReligionInfo::read(CvXMLLoadUtility* pXML)
 	pXML->GetOptionalChildXmlValByName(m_szMovieSound, L"MovieSound");
 	pXML->GetOptionalChildXmlValByName(m_szSound, L"Sound");
 
-	pXML->GetOptionalChildXmlValByName(szTextVal, L"Adjective");
-	setAdjectiveKey(szTextVal);
+	pXML->GetOptionalChildXmlValByName(m_szAdjectiveKey, L"Adjective");
 
 	pXML->SetVariableListTagPair(&m_piFlavorValue, L"Flavors", GC.getNumFlavorTypes());
 
@@ -17609,7 +17515,7 @@ void CvReligionInfo::copyNonDefaults(const CvReligionInfo* pClassInfo)
 	if (getMovieFile() == cDefault) m_szMovieFile = pClassInfo->getMovieFile();
 	if (getMovieSound() == cDefault) m_szMovieSound = pClassInfo->getMovieSound();
 	if (getSound() == cDefault) m_szSound = pClassInfo->getSound();
-	if (getAdjectiveKey() == wDefault) setAdjectiveKey(CvString::format("%s",pClassInfo->getAdjectiveKey()).GetCString());
+	if (getAdjectiveKey() == wDefault) m_szAdjectiveKey = pClassInfo->getAdjectiveKey();
 
 	for ( int i = 0; i < GC.getNumFlavorTypes(); i++ )
 	{
@@ -17926,7 +17832,7 @@ bool CvCorporationInfo::read(CvXMLLoadUtility* pXML)
 		return false;
 	}
 
-	pXML->GetOptionalTypeEnum(m_iTechPrereq, L"TechPrereq");
+	pXML->GetOptionalInfoTypeValByName(&m_iTechPrereq, L"TechPrereq");
 
 	pXML->GetOptionalChildXmlValByName(szTextVal, L"FreeUnit");
 	m_aszExtraXMLforPass3.push_back(szTextVal);
@@ -23590,21 +23496,18 @@ bool CvEventInfo::read(CvXMLLoadUtility* pXML)
 	pXML->GetOptionalChildXmlValByName(&m_iRandomGold, L"iRandomGold");
 	pXML->GetOptionalChildXmlValByName(&m_iCulture, L"iCulture");
 	pXML->GetOptionalChildXmlValByName(&m_iEspionagePoints, L"iEspionagePoints");
-	pXML->GetOptionalChildXmlValByName(szTextVal, L"Tech");
-	m_iTech = pXML->GetInfoClass(szTextVal);
+	pXML->GetOptionalInfoTypeValByName(&m_iTech, L"Tech");
 	pXML->GetOptionalChildXmlValByName(&m_iTechPercent, L"iTechPercent");
 	pXML->GetOptionalChildXmlValByName(&m_iTechCostPercent, L"iTechCostPercent");
 	pXML->GetOptionalChildXmlValByName(&m_iTechMinTurnsLeft, L"iTechMinTurnsLeft");
-	pXML->GetOptionalTypeEnum(m_iPrereqTech, L"PrereqTech");
-	pXML->GetOptionalChildXmlValByName(szTextVal, L"FreeUnit");
-	m_iFreeUnit = pXML->GetInfoClass(szTextVal);
+	pXML->GetOptionalInfoTypeValByName(&m_iPrereqTech, L"PrereqTech");
+	pXML->GetOptionalInfoTypeValByName(&m_iFreeUnit, L"FreeUnit");
 	pXML->GetOptionalChildXmlValByName(&m_iNumUnits, L"iNumFreeUnits");
 	pXML->GetOptionalChildXmlValByName(&m_bDisbandUnit, L"bDisbandUnit");
 	pXML->GetOptionalChildXmlValByName(&m_bGameSpeedScale, L"bGameSpeedScale");
 	pXML->GetOptionalChildXmlValByName(&m_iUnitExperience, L"iUnitExperience");
 	pXML->GetOptionalChildXmlValByName(&m_iUnitImmobileTurns, L"iUnitImmobileTurns");
-	pXML->GetOptionalChildXmlValByName(szTextVal, L"Building");
-	m_iBuilding = pXML->GetInfoClass(szTextVal);
+	pXML->GetOptionalInfoTypeValByName(&m_iBuilding, L"Building");
 	pXML->GetOptionalChildXmlValByName(&m_iBuildingChange, L"iBuildingChange");
 
 	pXML->GetOptionalChildXmlValByName(&m_iHappy, L"iHappy");
@@ -23614,26 +23517,21 @@ bool CvEventInfo::read(CvXMLLoadUtility* pXML)
 	pXML->GetOptionalChildXmlValByName(&m_iFood, L"iFood");
 	pXML->GetOptionalChildXmlValByName(&m_iFoodPercent, L"iFoodPercent");
 
-	pXML->GetOptionalChildXmlValByName(szTextVal, L"FeatureType");
-	m_iFeature = pXML->GetInfoClass(szTextVal);
+	pXML->GetOptionalInfoTypeValByName(&m_iFeature, L"FeatureType");
 	pXML->GetOptionalChildXmlValByName(&m_iFeatureChange, L"iFeatureChange");
 
-	pXML->GetOptionalTypeEnum(m_iImprovement, L"ImprovementType");
+	pXML->GetOptionalInfoTypeValByName(&m_iImprovement, L"ImprovementType");
 	pXML->GetOptionalChildXmlValByName(&m_iImprovementChange, L"iImprovementChange");
 
-	pXML->GetOptionalChildXmlValByName(szTextVal, L"BonusType");
-	m_iBonus = pXML->GetInfoClass(szTextVal);
+	pXML->GetOptionalInfoTypeValByName(&m_iBonus, L"BonusType");
 	pXML->GetOptionalChildXmlValByName(&m_iBonusChange, L"iBonusChange");
 
-	pXML->GetOptionalChildXmlValByName(szTextVal, L"RouteType");
-	m_iRoute = pXML->GetInfoClass(szTextVal);
+	pXML->GetOptionalInfoTypeValByName(&m_iRoute, L"RouteType");
 	pXML->GetOptionalChildXmlValByName(&m_iRouteChange, L"iRouteChange");
 
-	pXML->GetOptionalChildXmlValByName(szTextVal, L"BonusRevealed");
-	m_iBonusRevealed = pXML->GetInfoClass(szTextVal);
+	pXML->GetOptionalInfoTypeValByName(&m_iBonusRevealed, L"BonusRevealed");
 
-	pXML->GetOptionalChildXmlValByName(szTextVal, L"BonusGift");
-	m_iBonusGift = pXML->GetInfoClass(szTextVal);
+	pXML->GetOptionalInfoTypeValByName(&m_iBonusGift, L"BonusGift");
 
 	pXML->SetVariableListTagPair(&m_piTechFlavorValue, L"TechFlavors", GC.getNumFlavorTypes());
 	pXML->SetVariableListTagPair(&m_piPlotExtraYields, L"PlotExtraYields", NUM_YIELD_TYPES, 0);
@@ -24623,7 +24521,6 @@ int CvEspionageMissionInfo::getRemoveCorporationsCostFactor() const
 
 bool CvEspionageMissionInfo::read(CvXMLLoadUtility* pXML)
 {
-	CvString szTextVal;
 	if (!CvInfoBase::read(pXML))
 	{
 		return false;
@@ -24634,7 +24531,7 @@ bool CvEspionageMissionInfo::read(CvXMLLoadUtility* pXML)
 	pXML->GetOptionalChildXmlValByName(&m_bIsTwoPhases, L"bIsTwoPhases");
 	pXML->GetOptionalChildXmlValByName(&m_bTargetsCity, L"bTargetsCity");
 	pXML->GetOptionalChildXmlValByName(&m_bSelectPlot, L"bSelectPlot");
-	pXML->GetOptionalTypeEnum(m_iTechPrereq, L"TechPrereq");
+	pXML->GetOptionalInfoTypeValByName(&m_iTechPrereq, L"TechPrereq");
 	pXML->GetOptionalChildXmlValByName(&m_iVisibilityLevel, L"iVisibilityLevel");
 	pXML->GetOptionalChildXmlValByName(&m_bInvestigateCity, L"bInvestigateCity");
 	pXML->GetOptionalChildXmlValByName(&m_bSeeDemographics, L"bSeeDemographics");
@@ -24667,9 +24564,7 @@ bool CvEspionageMissionInfo::read(CvXMLLoadUtility* pXML)
 	pXML->GetOptionalChildXmlValByName(&m_iSabatogeResearchCostFactor, L"iSabatogeResearchCostFactor");
 	pXML->GetOptionalChildXmlValByName(&m_iRemoveReligionsCostFactor, L"iRemoveReligionsCostFactor");
 	pXML->GetOptionalChildXmlValByName(&m_iRemoveCorporationsCostFactor, L"iRemoveCorporationsCostFactor");
-
-	pXML->GetOptionalChildXmlValByName(szTextVal, L"PrereqGameOption");
-	m_iPrereqGameOption = pXML->GetInfoClass(szTextVal);
+	pXML->GetOptionalInfoTypeValByName(&m_iPrereqGameOption, L"PrereqGameOption");
 
 	return true;
 }

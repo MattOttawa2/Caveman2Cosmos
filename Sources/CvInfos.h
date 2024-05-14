@@ -5125,7 +5125,6 @@ public:
 	const char* getMovieArtDef() const;
 
 	const char* getCreateSound() const;
-	void setCreateSound(const char* szVal);
 
 	// Arrays
 
@@ -5241,7 +5240,6 @@ public:
 	const char* getSound() const;
 	const char* getButtonDisabled() const;
 
-	void setAdjectiveKey(const char* szVal);
 	const wchar_t* getAdjectiveKey() const;
 	std::wstring pyGetAdjectiveKey() const { return getAdjectiveKey(); }
 

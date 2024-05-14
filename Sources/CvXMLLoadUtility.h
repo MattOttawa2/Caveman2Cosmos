@@ -133,15 +133,29 @@ public:
 	bool GetOptionalChildXmlValByName(wchar_t* pszVal, const wchar_t* szName, wchar_t* pszDefault = NULL);
 
 	template <typename Enum_t>
-	void GetOptionalTypeEnum(Enum_t& val, const wchar_t* szName)
+	void GetInfoTypeValByName(Enum_t* val, const wchar_t* szName)
 	{
-		SetOptionalInfoType<NO_DELAYED_RESOLUTION>(this, val, szName);
+		// Matt: TODO - add error msg
+		SetOptionalInfoType<NO_DELAYED_RESOLUTION>(this, *val, szName);
 	}
 
 	template <typename Enum_t>
-	void GetOptionalTypeEnumWithDelayedResolution(Enum_t& val, const wchar_t* szName)
+	void GetInfoTypeValByNameWithDelayedResolution(Enum_t* val, const wchar_t* szName)
 	{
-		SetOptionalInfoType<USE_DELAYED_RESOLUTION>(this, val, szName);
+		// Matt: TODO - add error msg
+		SetOptionalInfoType<USE_DELAYED_RESOLUTION>(this, *val, szName);
+	}
+
+	template <typename Enum_t>
+	void GetOptionalInfoTypeValByName(Enum_t* val, const wchar_t* szName)
+	{
+		SetOptionalInfoType<NO_DELAYED_RESOLUTION>(this, *val, szName);
+	}
+
+	template <typename Enum_t>
+	void GetOptionalInfoTypeValByNameWithDelayedResolution(Enum_t* val, const wchar_t* szName)
+	{
+		SetOptionalInfoType<USE_DELAYED_RESOLUTION>(this, *val, szName);
 	}
 
 	template <DelayedResolutionTypes = NO_DELAYED_RESOLUTION>

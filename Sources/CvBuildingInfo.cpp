@@ -2006,82 +2006,44 @@ bool CvBuildingInfo::read(CvXMLLoadUtility* pXML)
 
 	CvInfoUtil(this).readXml(pXML);
 
-	pXML->GetOptionalChildXmlValByName(szTextVal, L"SpecialBuildingType");
-	m_eSpecialBuilding = static_cast<SpecialBuildingTypes>(pXML->GetInfoClass(szTextVal));
-
-	pXML->GetOptionalChildXmlValByName(szTextVal, L"Advisor");
-	m_iAdvisorType = pXML->GetInfoClass(szTextVal);
-
+	pXML->GetOptionalInfoTypeValByName(&m_eSpecialBuilding, L"SpecialBuildingType");
+	pXML->GetOptionalInfoTypeValByName(&m_iAdvisorType, L"Advisor");
 	pXML->GetOptionalChildXmlValByName(&m_bNoLimit, L"bNoLimit");
-
 	pXML->GetOptionalChildXmlValByName(m_szArtDefineTag, L"ArtDefineTag");
 
 	setNotShowInCity();
 
 	pXML->GetOptionalChildXmlValByName(m_szMovieDefineTag, L"MovieDefineTag");
 
-	pXML->GetOptionalChildXmlValByName(szTextVal, L"PrereqGameOption");
-	m_iPrereqGameOption = pXML->GetInfoClass(szTextVal);
+	pXML->GetOptionalInfoTypeValByName(&m_iPrereqGameOption, L"PrereqGameOption");
+	pXML->GetOptionalInfoTypeValByName(&m_iNotGameOption, L"NotGameOption");
+	pXML->GetOptionalInfoTypeValByName(&m_iHolyCity, L"HolyCity");
+	pXML->GetOptionalInfoTypeValByName(&m_iReligionType, L"ReligionType");
+	pXML->GetOptionalInfoTypeValByName(&m_iStateReligion, L"StateReligion");
+	pXML->GetOptionalInfoTypeValByName(&m_iPrereqReligion, L"PrereqReligion");
+	pXML->GetOptionalInfoTypeValByName(&m_iPrereqCorporation, L"PrereqCorporation");
+	pXML->GetOptionalInfoTypeValByName(&m_iFoundsCorporation, L"FoundsCorporation");
+	pXML->GetOptionalInfoTypeValByName(&m_iGlobalReligionCommerce, L"GlobalReligionCommerce");
+	pXML->GetOptionalInfoTypeValByName(&m_iGlobalCorporationCommerce, L"GlobalCorporationCommerce");
+	pXML->GetOptionalInfoTypeValByName(&m_iVictoryPrereq, L"VictoryPrereq");
+	pXML->GetOptionalInfoTypeValByName(&m_iFreeStartEra, L"FreeStartEra");
+	pXML->GetOptionalInfoTypeValByName(&m_iMaxStartEra, L"MaxStartEra");
 
-	pXML->GetOptionalChildXmlValByName(szTextVal, L"NotGameOption");
-	m_iNotGameOption = pXML->GetInfoClass(szTextVal);
-
-	pXML->GetOptionalChildXmlValByName(szTextVal, L"HolyCity");
-	m_iHolyCity = pXML->GetInfoClass(szTextVal);
-
-	pXML->GetOptionalChildXmlValByName(szTextVal, L"ReligionType");
-	m_iReligionType = pXML->GetInfoClass(szTextVal);
-
-	pXML->GetOptionalChildXmlValByName(szTextVal, L"StateReligion");
-	m_iStateReligion = pXML->GetInfoClass(szTextVal);
-
-	pXML->GetOptionalChildXmlValByName(szTextVal, L"PrereqReligion");
-	m_iPrereqReligion = pXML->GetInfoClass(szTextVal);
-
-	pXML->GetOptionalChildXmlValByName(szTextVal, L"PrereqCorporation");
-	m_iPrereqCorporation = pXML->GetInfoClass(szTextVal);
-
-	pXML->GetOptionalChildXmlValByName(szTextVal, L"FoundsCorporation");
-	m_iFoundsCorporation = pXML->GetInfoClass(szTextVal);
-
-	pXML->GetOptionalChildXmlValByName(szTextVal, L"GlobalReligionCommerce");
-	m_iGlobalReligionCommerce = pXML->GetInfoClass(szTextVal);
-
-	pXML->GetOptionalChildXmlValByName(szTextVal, L"GlobalCorporationCommerce");
-	m_iGlobalCorporationCommerce = pXML->GetInfoClass(szTextVal);
-
-	pXML->GetOptionalChildXmlValByName(szTextVal, L"VictoryPrereq");
-	m_iVictoryPrereq = pXML->GetInfoClass(szTextVal);
-
-	pXML->GetOptionalChildXmlValByName(szTextVal, L"FreeStartEra");
-	m_iFreeStartEra = static_cast<EraTypes>(pXML->GetInfoClass(szTextVal));
-
-	pXML->GetOptionalChildXmlValByName(szTextVal, L"MaxStartEra");
-	m_iMaxStartEra = pXML->GetInfoClass(szTextVal);
-
-	pXML->GetOptionalChildXmlValByName(szTextVal, L"PrereqTech");
-	m_iPrereqAndTech = pXML->GetInfoClass(szTextVal);
-
+	pXML->GetOptionalInfoTypeValByName(&m_iPrereqAndTech, L"PrereqTech");
 	pXML->SetOptionalVector(&m_piPrereqAndTechs, L"TechTypes");
 
-	pXML->GetOptionalChildXmlValByName(szTextVal, L"Bonus");
-	m_iPrereqAndBonus = pXML->GetInfoClass(szTextVal);
+	pXML->GetOptionalInfoTypeValByName(&m_iPrereqAndBonus, L"Bonus");
 
 	pXML->SetOptionalVector(&m_aePrereqOrBonuses, L"PrereqBonuses");
 	pXML->SetOptionalVector(&m_prereqOrHeritage, L"PrereqOrHeritage");
 
-	pXML->GetOptionalChildXmlValByName(szTextVal, L"PowerBonus");
-	m_iPowerBonus = pXML->GetInfoClass(szTextVal);
-
-	pXML->GetOptionalChildXmlValByName(szTextVal, L"CivicOption");
-	m_iCivicOption = pXML->GetInfoClass(szTextVal);
+	pXML->GetOptionalInfoTypeValByName(&m_iPowerBonus, L"PowerBonus");
+	pXML->GetOptionalInfoTypeValByName(&m_iCivicOption, L"CivicOption");
 
 	pXML->GetOptionalChildXmlValByName(szTextVal, L"GreatPeopleUnitType");
 	m_aszExtraXMLforPass3.push_back(szTextVal);
 
-	pXML->GetOptionalChildXmlValByName(szTextVal, L"DiploVoteType");
-	m_iVoteSourceType = pXML->GetInfoClass(szTextVal);
-
+	pXML->GetOptionalInfoTypeValByName(&m_iVoteSourceType, L"DiploVoteType");
 	pXML->GetOptionalChildXmlValByName(&m_iGreatPeopleRateChange, L"iGreatPeopleRateChange");
 	pXML->GetOptionalChildXmlValByName(&m_bTeamShare, L"bTeamShare");
 	pXML->GetOptionalChildXmlValByName(&m_bAutoBuild, L"bAutoBuild");
@@ -2166,10 +2128,7 @@ bool CvBuildingInfo::read(CvXMLLoadUtility* pXML)
 	pXML->GetOptionalChildXmlValByName(&m_iForeignTradeRouteModifier, L"iForeignTradeRouteModifier");
 	pXML->GetOptionalChildXmlValByName(&m_iGlobalPopulationChange, L"iGlobalPopulationChange");
 	pXML->GetOptionalChildXmlValByName(&m_iFreeTechs, L"iFreeTechs");
-
-	pXML->GetOptionalChildXmlValByName(szTextVal, L"FreeSpecialTech");
-	m_eFreeSpecialTech = (TechTypes) pXML->GetInfoClass(szTextVal);
-
+	pXML->GetOptionalInfoTypeValByName(&m_eFreeSpecialTech, L"FreeSpecialTech");
 	pXML->GetOptionalChildXmlValByName(&m_iDefenseModifier, L"iDefense");
 	pXML->GetOptionalChildXmlValByName(&m_iBombardDefenseModifier, L"iBombardDefense");
 	pXML->GetOptionalChildXmlValByName(&m_iAllCityDefenseModifier, L"iAllCityDefense");
@@ -2625,15 +2584,9 @@ bool CvBuildingInfo::read(CvXMLLoadUtility* pXML)
 	pXML->GetOptionalChildXmlValByName(&m_iHealthPercentPerPopulation, L"iHealthPercentPerPopulation");
 	pXML->GetOptionalChildXmlValByName(&m_iHappinessPercentPerPopulation, L"iHappinessPercentPerPopulation");
 	pXML->GetOptionalChildXmlValByName(&m_bProtectedCulture, L"bProtectedCulture");
-
-	pXML->GetOptionalChildXmlValByName(szTextVal, L"PrereqCultureLevel");
-	m_iPrereqCultureLevel = pXML->GetInfoClass(szTextVal);
-
-	pXML->GetOptionalChildXmlValByName(szTextVal, L"VicinityBonus");
-	m_iPrereqVicinityBonus = pXML->GetInfoClass(szTextVal);
-
-	pXML->GetOptionalChildXmlValByName(szTextVal, L"RawVicinityBonus");
-	m_iPrereqRawVicinityBonus = pXML->GetInfoClass(szTextVal);
+	pXML->GetOptionalInfoTypeValByName(&m_iPrereqCultureLevel, L"PrereqCultureLevel");
+	pXML->GetOptionalInfoTypeValByName(&m_iPrereqVicinityBonus, L"VicinityBonus");
+	pXML->GetOptionalInfoTypeValByName(&m_iPrereqRawVicinityBonus, L"RawVicinityBonus");
 
 	pXML->SetVariableListTagPair(&m_pbPrereqOrTerrain, L"PrereqOrTerrain", GC.getNumTerrainInfos());
 	pXML->SetVariableListTagPair(&m_pbPrereqAndTerrain, L"PrereqAndTerrain", GC.getNumTerrainInfos());
@@ -2986,11 +2939,9 @@ bool CvBuildingInfo::read(CvXMLLoadUtility* pXML)
 	pXML->GetOptionalChildXmlValByName(szTextVal, L"PropertySpawnUnit");
 	m_aszExtraXMLforPass3.push_back(szTextVal);
 
-	pXML->GetOptionalChildXmlValByName(szTextVal, L"PropertySpawnProperty");
-	m_ePropertySpawnProperty = (PropertyTypes) pXML->GetInfoClass(szTextVal);
+	pXML->GetOptionalInfoTypeValByName(&m_ePropertySpawnProperty, L"PropertySpawnProperty");
 
-	pXML->GetOptionalChildXmlValByName(szTextVal, L"PromotionLineType");
-	m_ePromotionLineType = (PromotionLineTypes) pXML->GetInfoClass(szTextVal);
+	pXML->GetOptionalInfoTypeValByName(&m_ePromotionLineType, L"PromotionLineType");
 	//integers
 	pXML->GetOptionalChildXmlValByName(&m_iLinePriority, L"iLinePriority");
 	pXML->GetOptionalChildXmlValByName(&m_iOutbreakBase, L"iOutbreakBase");
@@ -3042,8 +2993,7 @@ bool CvBuildingInfo::read(CvXMLLoadUtility* pXML)
 				int i = 0;
 				do
 				{
-					pXML->GetChildXmlValByName(szTextVal, L"PromotionType");
-					m_aFreePromoTypes[i].ePromotion = (PromotionTypes)pXML->GetInfoClass(szTextVal);
+					pXML->GetInfoTypeValByName(&m_aFreePromoTypes[i].ePromotion, L"PromotionType");
 					FAssert(m_aFreePromoTypes[i].ePromotion > -1);
 					if (pXML->TryMoveToXmlFirstChild(L"FreePromotionCondition"))
 					{
@@ -3077,8 +3027,7 @@ bool CvBuildingInfo::read(CvXMLLoadUtility* pXML)
 				int i = 0;
 				do
 				{
-					pXML->GetChildXmlValByName(szTextVal, L"UnitCombatType");
-					m_aHealUnitCombatTypes[i].eUnitCombat = (UnitCombatTypes)pXML->GetInfoClass(szTextVal);
+					pXML->GetInfoTypeValByName(&m_aHealUnitCombatTypes[i].eUnitCombat, L"UnitCombatType");
 					pXML->GetChildXmlValByName(&(m_aHealUnitCombatTypes[i].iHeal), L"iHeal");
 					i++;
 				} while(pXML->TryMoveToXmlNextSibling(L"HealUnitCombatType"));
@@ -3100,10 +3049,8 @@ bool CvBuildingInfo::read(CvXMLLoadUtility* pXML)
 				int i = 0;
 				do
 				{
-					pXML->GetChildXmlValByName(szTextVal, L"BonusType");
-					m_aBonusAidModifiers[i].eBonusType = (BonusTypes)pXML->GetInfoClass(szTextVal);
-					pXML->GetChildXmlValByName(szTextVal, L"PropertyType");
-					m_aBonusAidModifiers[i].ePropertyType = (PropertyTypes)pXML->GetInfoClass(szTextVal);
+					pXML->GetInfoTypeValByName(&m_aBonusAidModifiers[i].eBonusType, L"BonusType");
+					pXML->GetInfoTypeValByName(&m_aBonusAidModifiers[i].ePropertyType, L"PropertyType");
 					pXML->GetChildXmlValByName(&(m_aBonusAidModifiers[i].iModifier), L"iModifier");
 					i++;
 				} while(pXML->TryMoveToXmlNextSibling(L"BonusAidModifier"));
@@ -3186,12 +3133,12 @@ bool CvBuildingInfo::read(CvXMLLoadUtility* pXML)
 
 	pXML->SetVariableListTagPair(&m_piVictoryThreshold, L"VictoryThresholds", GC.getNumVictoryInfos());
 
-	pXML->GetOptionalTypeEnumWithDelayedResolution(m_iFreeBuilding, L"FreeBuilding");
-	pXML->GetOptionalTypeEnumWithDelayedResolution(m_iFreeAreaBuilding, L"FreeAreaBuilding");
-	pXML->GetOptionalTypeEnumWithDelayedResolution(m_iProductionContinueBuilding, L"ProductionContinueBuilding");
-	pXML->GetOptionalTypeEnumWithDelayedResolution(m_iPrereqAnyoneBuilding, L"PrereqAnyoneBuilding");
-	pXML->GetOptionalTypeEnumWithDelayedResolution(m_iExtendsBuilding, L"ExtendsBuilding");
-	pXML->GetOptionalTypeEnumWithDelayedResolution(m_iObsoletesToBuilding, L"ObsoletesToBuilding");
+	pXML->GetOptionalInfoTypeValByNameWithDelayedResolution(&m_iFreeBuilding, L"FreeBuilding");
+	pXML->GetOptionalInfoTypeValByNameWithDelayedResolution(&m_iFreeAreaBuilding, L"FreeAreaBuilding");
+	pXML->GetOptionalInfoTypeValByNameWithDelayedResolution(&m_iProductionContinueBuilding, L"ProductionContinueBuilding");
+	pXML->GetOptionalInfoTypeValByNameWithDelayedResolution(&m_iPrereqAnyoneBuilding, L"PrereqAnyoneBuilding");
+	pXML->GetOptionalInfoTypeValByNameWithDelayedResolution(&m_iExtendsBuilding, L"ExtendsBuilding");
+	pXML->GetOptionalInfoTypeValByNameWithDelayedResolution(&m_iObsoletesToBuilding, L"ObsoletesToBuilding");
 
 	m_aBuildingHappinessChanges.readWithDelayedResolution(pXML, L"BuildingHappinessChanges");
 	m_aUnitProductionModifier.readWithDelayedResolution(pXML, L"UnitProductionModifiers");

@@ -3726,9 +3726,9 @@ bool CvTraitInfo::read(CvXMLLoadUtility* pXML)
 		SAFE_DELETE_ARRAY(m_piGoldenAgeCommerceChangesFiltered);
 	}
 
-	pXML->GetOptionalTypeEnumWithDelayedResolution(m_iPrereqTrait, L"TraitPrereq");
-	pXML->GetOptionalTypeEnumWithDelayedResolution(m_iPrereqOrTrait1, L"TraitPrereqOr1");
-	pXML->GetOptionalTypeEnumWithDelayedResolution(m_iPrereqOrTrait2, L"TraitPrereqOr2");
+	pXML->GetOptionalInfoTypeValByNameWithDelayedResolution(&m_iPrereqTrait, L"TraitPrereq");
+	pXML->GetOptionalInfoTypeValByNameWithDelayedResolution(&m_iPrereqOrTrait1, L"TraitPrereqOr1");
+	pXML->GetOptionalInfoTypeValByNameWithDelayedResolution(&m_iPrereqOrTrait2, L"TraitPrereqOr2");
 
 	CvInfoUtil(this).readXml(pXML);
 
