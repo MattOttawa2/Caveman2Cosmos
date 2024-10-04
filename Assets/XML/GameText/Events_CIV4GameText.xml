@@ -3190,11 +3190,15 @@
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_ADD_ONE_POPULATION</Tag>
-		<English>Join the city.</English>
+		<English>Let's hope our people will accept these new folks.</English>
 	</TEXT>
     <TEXT>
         <Tag>TXT_KEY_EVENT_ADD_ONE_POPULATION1</Tag>
         <English>Chase them away we can't afford to feed more mouths.</English>
+    </TEXT>
+    <TEXT>
+        <Tag>TXT_KEY_EVENT_ADD_ONE_POPULATION2</Tag>
+        <English>%s1_civ_adjective city of %s2_city is having riots as the poeple feel their culture and way of life is treathened by outsiders.</English>
     </TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_AIRLINER_CRASH_1</Tag>
@@ -6904,6 +6908,10 @@
 		<Italian>La pace sarebbe un bene per entrambi. Approviamo questo mediatore e possano le sue parole dimostrarsi più acute del nostro odio.</Italian>
 		<Spanish>La paz beneficiaría a ambos bandos. Que este mediador reciba nuestra bendición, y que sus palabras resulten más afiladas que el odio del enemigo.</Spanish>
 	</TEXT>
+    <TEXT>
+        <Tag>TXT_KEY_EVENT_MEDIATOR_WORLD_2</Tag>
+        <English>A great mediator has offered to arbitrate peace between %s1_civ_adjective and %s2_civ_adjective.</English>
+    </TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_EVENT_GREAT_MEDIATOR_OTHER_3</Tag>
 		<English>A great mediator has offered to arbitrate our grievance with the %s1_civ_adjective Empire. This opens the door to a possible peace treaty. Do you wish to end the war?</English>
@@ -7603,6 +7611,10 @@
     </TEXT>
     <TEXT>
         <Tag>TXT_KEY_EVENT_RUBIE_1</Tag>
+        <English>This is great. This ore will boost our economy.</English>
+    </TEXT>
+    <TEXT>
+        <Tag>TXT_KEY_EVENT_SULPHUR_1</Tag>
         <English>This is great. This ore will boost our economy.</English>
     </TEXT>
     <TEXT>
