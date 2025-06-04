@@ -17133,6 +17133,16 @@
 			<KFM/>
 			<Button>art/Craft/art/woodgatherer.dds</Button>
 		</BuildingArtInfo>
+        <BuildingArtInfo>
+            <Type>ART_DEF_BUILDING_PRIME_TIMBER_CAMP</Type>
+            <LSystem/>
+            <bAnimated>0</bAnimated>
+            <fScale>0</fScale>
+            <fInterfaceScale>0</fInterfaceScale>
+            <NIF/>
+            <KFM/>
+            <Button>art/Craft/art/primetimbercamp.dds</Button>
+        </BuildingArtInfo>
 		<BuildingArtInfo>
 			<Type>ART_DEF_BUILDING_MUSHROOM_GATHERER</Type>
 			<LSystem/>
@@ -44935,7 +44945,7 @@
 			<Button>Art/Interface/TeamColor/norsebutton.dds</Button>
 		</BuildingArtInfo>
 		<BuildingArtInfo>
-			<Type>ART_DEF_BUILDING_TRADING_POST</Type>
+			<Type>ART_DEF_BUILDING_FISHING_HUT</Type>
 			<LSystem>LSYSTEM_COAST</LSystem>
 			<bAnimated>0</bAnimated>
 			<fScale>2.38</fScale>
