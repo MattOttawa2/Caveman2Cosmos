@@ -2016,21 +2016,9 @@ bool CvUnitCombatInfo::read(CvXMLLoadUtility* pXML)
 	}
 
 	// Textual References
-
-	if ( pXML->GetOptionalChildXmlValByName(szTextVal, L"ReligionType") )
-		m_eReligion = (ReligionTypes)pXML->GetInfoClass(szTextVal);
-	else
-		m_eReligion = NO_RELIGION;
-
-	if ( pXML->GetOptionalChildXmlValByName(szTextVal, L"CultureType") )
-		m_eCulture = (BonusTypes)pXML->GetInfoClass(szTextVal);
-	else
-		m_eCulture = NO_BONUS;
-
-	if ( pXML->GetOptionalChildXmlValByName(szTextVal, L"EraType") )
-		m_eEra = (EraTypes)pXML->GetInfoClass(szTextVal);
-	else
-		m_eEra = NO_ERA;
+	pXML->GetOptionalInfoTypeValByName(&m_eReligion, L"ReligionType");
+	pXML->GetOptionalInfoTypeValByName(&m_eCulture, L"CultureType");
+	pXML->GetOptionalInfoTypeValByName(&m_eEra, L"EraType");
 
 	//Integers
 	pXML->GetOptionalChildXmlValByName(&m_iVisibilityChange, L"iVisibilityChange");

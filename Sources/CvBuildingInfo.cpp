@@ -3072,8 +3072,7 @@ bool CvBuildingInfo::read(CvXMLLoadUtility* pXML)
 				int i = 0;
 				do
 				{
-					pXML->GetChildXmlValByName(szTextVal, L"PropertyType");
-					m_aAidRateChanges[i].ePropertyType = (PropertyTypes)pXML->GetInfoClass(szTextVal);
+					pXML->GetInfoTypeValByName(&m_aAidRateChanges[i].ePropertyType, L"PropertyType");
 					pXML->GetChildXmlValByName(&(m_aAidRateChanges[i].iChange), L"iChange");
 					i++;
 				} while(pXML->TryMoveToXmlNextSibling(L"AidRateChange"));

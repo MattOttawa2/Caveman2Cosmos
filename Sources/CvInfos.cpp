@@ -20526,9 +20526,7 @@ bool CvCultureLevelInfo::read(CvXMLLoadUtility* pXml)
 	pXml->GetOptionalChildXmlValByName(&m_iMaxTeamWonders, L"iMaxTeamWonders", 1);
 	pXml->GetOptionalChildXmlValByName(&m_iMaxNationalWonders, L"iMaxNationalWonders", 1);
 	pXml->GetOptionalChildXmlValByName(&m_iMaxNationalWondersOCC, L"iMaxNationalWondersOCC", 1);
-	CvString szTextVal;
-	pXml->GetOptionalChildXmlValByName(szTextVal, L"PrereqGameOption");
-	m_iPrereqGameOption = pXml->GetInfoClass(szTextVal);
+	pXml->GetOptionalInfoTypeValByName(&m_iPrereqGameOption, L"PrereqGameOption");
 
 	pXml->SetVariableListTagPair(&m_paiSpeedThreshold, L"SpeedThresholds", GC.getNumGameSpeedInfos());
 
@@ -21066,20 +21064,14 @@ int CvPlayerColorInfo::getTextColorType() const
 
 bool CvPlayerColorInfo::read(CvXMLLoadUtility* pXML)
 {
-	CvString szTextVal;
 	if (!CvInfoBase::read(pXML))
 	{
 		return false;
 	}
 
-	pXML->GetChildXmlValByName(szTextVal, L"ColorTypePrimary");
-	m_iColorTypePrimary = pXML->GetInfoClass( szTextVal);
-
-	pXML->GetChildXmlValByName(szTextVal, L"ColorTypeSecondary");
-	m_iColorTypeSecondary = pXML->GetInfoClass( szTextVal);
-
-	pXML->GetChildXmlValByName(szTextVal, L"TextColorType");
-	m_iTextColorType = pXML->GetInfoClass( szTextVal);
+	pXML->GetInfoTypeValByName(&m_iColorTypePrimary, L"ColorTypePrimary");
+	pXML->GetInfoTypeValByName(&m_iColorTypeSecondary, L"ColorTypeSecondary");
+	pXML->GetInfoTypeValByName(&m_iTextColorType, L"TextColorType");
 
 	return true;
 }
@@ -22532,10 +22524,7 @@ bool CvEventTriggerInfo::read(CvXMLLoadUtility* pXML)
 	pXML->GetOptionalChildXmlValByName(&m_iMinMapLandmass, L"iMinMapLandmass");
 	pXML->GetOptionalChildXmlValByName(&m_iMinOurLandmass, L"iMinOurLandmass");
 	pXML->GetOptionalChildXmlValByName(&m_iMaxOurLandmass, L"iMaxOurLandmass", -1);
-
-	pXML->GetOptionalChildXmlValByName(szTextVal, L"MinDifficulty");
-	m_iMinDifficulty = pXML->GetInfoClass(szTextVal);
-
+	pXML->GetOptionalInfoTypeValByName(&m_iMinDifficulty, L"MinDifficulty");
 	pXML->GetOptionalChildXmlValByName(&m_iAngry, L"iAngry");
 	pXML->GetOptionalChildXmlValByName(&m_iUnhealthy, L"iUnhealthy");
 	pXML->GetOptionalChildXmlValByName(&m_iUnitDamagedWeight, L"iUnitDamagedWeight");
@@ -22546,13 +22535,8 @@ bool CvEventTriggerInfo::read(CvXMLLoadUtility* pXML)
 	pXML->SetOptionalVector(&m_aiBuildingsRequired, L"BuildingsRequired");
 	pXML->SetOptionalVector(&m_aiPrereqOrTechs, L"OrPreReqs");
 	pXML->SetOptionalVector(&m_aiPrereqAndTechs, L"AndPreReqs");
-
-	pXML->GetOptionalChildXmlValByName(szTextVal, L"OtherPlayerHasTech");
-	m_iOtherPlayerHasTech = pXML->GetInfoClass(szTextVal);
-
-	pXML->GetOptionalChildXmlValByName(szTextVal, L"Civic");
-	m_iCivic = pXML->GetInfoClass(szTextVal);
-
+	pXML->GetOptionalInfoTypeValByName(&m_iOtherPlayerHasTech, L"OtherPlayerHasTech");
+	pXML->GetOptionalInfoTypeValByName(&m_iCivic, L"Civic");
 	pXML->SetOptionalVector(&m_aiObsoleteTechs, L"ObsoleteTechs");
 	pXML->SetOptionalVector(&m_aiEvents, L"Events");
 	pXML->SetOptionalVector(&m_aiPrereqEvents, L"PrereqEvents");
@@ -23815,9 +23799,7 @@ bool CvEventInfo::read(CvXMLLoadUtility* pXML)
 
 		pXML->MoveToXmlParent();
 	}
-	pXML->GetOptionalChildXmlValByName(szTextVal, L"PrereqGameOption");
-	m_iPrereqGameOption = pXML->GetInfoClass(szTextVal);
-
+	pXML->GetOptionalInfoTypeValByName(&m_iPrereqGameOption, L"PrereqGameOption");
 	pXML->GetOptionalChildXmlValByName(&m_iRevolutionIndexChange, L"iRevolutionIndexChange");
 
 	if (pXML->TryMoveToXmlFirstChild(L"AdditionalEvents"))
@@ -25164,13 +25146,8 @@ bool CvVoteSourceInfo::read(CvXMLLoadUtility* pXML)
 	pXML->GetOptionalChildXmlValByName(&m_iVoteInterval, L"iVoteInterval");
 	pXML->GetOptionalChildXmlValByName(m_szPopupText, L"PopupText");
 	pXML->GetOptionalChildXmlValByName(m_szSecretaryGeneralText, L"SecretaryGeneralText");
-
-	CvString szTextVal;
-	pXML->GetOptionalChildXmlValByName(szTextVal, L"FreeSpecialist");
-	m_iFreeSpecialist = pXML->GetInfoClass(szTextVal);
-
-	pXML->GetOptionalChildXmlValByName(szTextVal, L"Civic");
-	GC.addDelayedResolution((int*)&m_iCivic, szTextVal);
+	pXML->GetOptionalInfoTypeValByName(&m_iFreeSpecialist, L"FreeSpecialist");
+	pXML->GetOptionalInfoTypeValByNameWithDelayedResolution(&m_iCivic, L"Civic");
 
 	if (pXML->TryMoveToXmlFirstChild(L"ReligionYields"))
 	{
@@ -25889,16 +25866,9 @@ bool CvOutcomeInfo::read(CvXMLLoadUtility* pXML)
 	}
 
 	pXML->GetOptionalChildXmlValByName(m_szMessageText, L"Message");
-	CvString szTextVal;
-	pXML->GetOptionalChildXmlValByName(szTextVal, L"PrereqTech");
-	m_ePrereqTech = (TechTypes) pXML->GetInfoClass(szTextVal);
-
-	pXML->GetOptionalChildXmlValByName(szTextVal, L"ObsoleteTech");
-	m_eObsoleteTech = (TechTypes) pXML->GetInfoClass(szTextVal);
-
-	pXML->GetOptionalChildXmlValByName(szTextVal, L"PrereqCivic");
-	m_ePrereqCivic = (CivicTypes) pXML->GetInfoClass(szTextVal);
-
+	pXML->GetOptionalInfoTypeValByName(&m_ePrereqTech, L"PrereqTech");
+	pXML->GetOptionalInfoTypeValByName(&m_eObsoleteTech, L"ObsoleteTech");
+	pXML->GetOptionalInfoTypeValByName(&m_ePrereqCivic, L"PrereqCivic");
 	pXML->GetOptionalChildXmlValByName(&m_bToCoastalCity, L"bToCoastalCity");
 	pXML->GetOptionalChildXmlValByName(&m_bFriendlyTerritory, L"bFriendlyTerritory", true);
 	pXML->GetOptionalChildXmlValByName(&m_bNeutralTerritory, L"bNeutralTerritory", true);
@@ -25917,8 +25887,8 @@ bool CvOutcomeInfo::read(CvXMLLoadUtility* pXML)
 				do
 				{
 					int iExtraChance;
-					pXML->GetChildXmlValByName(szTextVal, L"PromotionType");
-					PromotionTypes ePromotion = (PromotionTypes) pXML->GetInfoClass(szTextVal);
+					PromotionTypes ePromotion = NO_PROMOTION;
+					pXML->GetInfoTypeValByName(&ePromotion, L"PromotionType");
 					pXML->GetChildXmlValByName(&iExtraChance, L"iExtraChance");
 					m_aeiExtraChancePromotions.push_back(std::pair<PromotionTypes,int>(ePromotion, iExtraChance));
 				} while(pXML->TryMoveToXmlNextSibling());
@@ -26096,15 +26066,9 @@ bool CvPromotionLineInfo::read(CvXMLLoadUtility* pXML)
 		return false;
 	}
 
-	CvString szTextVal;
-	pXML->GetOptionalChildXmlValByName(szTextVal, L"PrereqTech");
-	m_ePrereqTech = (TechTypes) pXML->GetInfoClass(szTextVal);
-
-	pXML->GetOptionalChildXmlValByName(szTextVal, L"ObsoleteTech");
-	m_eObsoleteTech = (TechTypes) pXML->GetInfoClass(szTextVal);
-
-	pXML->GetOptionalChildXmlValByName(szTextVal, L"PropertyType");
-	m_ePropertyType = (PropertyTypes) pXML->GetInfoClass(szTextVal);
+	pXML->GetOptionalInfoTypeValByName(&m_ePrereqTech, L"PrereqTech");
+	pXML->GetOptionalInfoTypeValByName(&m_eObsoleteTech, L"ObsoleteTech");
+	pXML->GetOptionalInfoTypeValByName(&m_ePropertyType, L"PropertyType");
 
 #ifdef OUTBREAKS_AND_AFFLICTIONS
 	pXML->GetOptionalChildXmlValByName(&m_iToleranceBuildup, L"iToleranceBuildup");
@@ -26809,12 +26773,7 @@ bool CvIdeaInfo::read(CvXMLLoadUtility* pXML)
 		return false;
 	}
 
-	CvString szTextVal;
-
-	if ( pXML->GetOptionalChildXmlValByName(szTextVal, L"IdeaClassType") )
-		m_eIdeaClass = (IdeaClassTypes)pXML->GetInfoClass(szTextVal);
-	else
-		m_eIdeaClass = NO_IDEACLASS;
+	pXML->GetOptionalInfoTypeValByName(&m_eIdeaClass, L"IdeaClassType");
 
 	return true;
 }

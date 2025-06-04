@@ -38,14 +38,12 @@ bool CvHeritageInfo::read(CvXMLLoadUtility* pXML)
 	{
 		return false;
 	}
-	CvString szTextVal;
 
 	m_PropertyManipulators.read(pXML);
 
 	pXML->GetOptionalChildXmlValByName(&m_bNeedLanguage, L"bNeedLanguage");
 
-	pXML->GetOptionalChildXmlValByName(szTextVal, L"PrereqTech");
-	m_iPrereqTech = pXML->GetInfoClass(szTextVal);
+	pXML->GetOptionalInfoTypeValByName(&m_iPrereqTech, L"PrereqTech");
 
 	pXML->SetOptionalVectorWithDelayedResolution(m_prereqOrHeritage, L"PrereqOrHeritage");
 

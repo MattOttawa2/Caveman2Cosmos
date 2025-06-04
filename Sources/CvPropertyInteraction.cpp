@@ -86,17 +86,13 @@ bool CvPropertyInteraction::isActive(const CvGameObject *pObject) const
 
 bool CvPropertyInteraction::read(CvXMLLoadUtility *pXML)
 {
-	CvString szTextVal;
-	pXML->GetChildXmlValByName(szTextVal, L"SourcePropertyType");
+	//CvString szTextVal;
+	pXML->GetInfoTypeValByNameWithDelayedResolution(&m_eSourceProperty, L"SourcePropertyType");
 	//m_eSourceProperty = (PropertyTypes) pXML->FindInInfoClass(szTextVal);
-	GC.addDelayedResolution((int*)&m_eSourceProperty,szTextVal);
-	pXML->GetChildXmlValByName(szTextVal, L"TargetPropertyType");
+	pXML->GetInfoTypeValByNameWithDelayedResolution(&m_eTargetProperty, L"TargetPropertyType");
 	//m_eTargetProperty = (PropertyTypes) pXML->FindInInfoClass(szTextVal);
-	GC.addDelayedResolution((int*)&m_eTargetProperty,szTextVal);
-	pXML->GetOptionalChildXmlValByName(szTextVal, L"GameObjectType");
-	m_eObjectType = (GameObjectTypes) pXML->GetInfoClass(szTextVal);
-	pXML->GetOptionalChildXmlValByName(szTextVal, L"RelationType");
-	m_eRelation = (RelationTypes) pXML->GetInfoClass(szTextVal);
+	pXML->GetOptionalInfoTypeValByName(&m_eObjectType, L"GameObjectType");
+	pXML->GetOptionalInfoTypeValByName(&m_eRelation, L"RelationType");
 	if (m_eRelation == RELATION_NEAR)
 		pXML->GetOptionalChildXmlValByName(&m_iRelationData, L"iDistance");
 	if (pXML->TryMoveToXmlFirstChild(L"Active"))

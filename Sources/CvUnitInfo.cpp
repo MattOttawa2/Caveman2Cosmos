@@ -4051,7 +4051,6 @@ bool CvUnitInfo::read(CvXMLLoadUtility* pXML)
 	CvInfoUtil(this).readXml(pXML);
 
 	CvString szTextVal;
-	CvString szTextVal2;
 
 	int iIndexVal;
 

@@ -61,8 +61,8 @@ struct IDValueMap
 
 				foreach_(value_type& pair, m_map)
 				{
-					CvXMLLoadUtility::SetOptionalInfoType<delayedRes_>(pXML, pair.first, firstChildTag);
-					pXML->set(pair.second, secondChildTag);
+					if (pXML->SetInfoType<delayedRes_>(pair.first, firstChildTag))
+						pXML->set(pair.second, secondChildTag);
 
 					if (!pXML->TryMoveToXmlNextSibling())
 						break;

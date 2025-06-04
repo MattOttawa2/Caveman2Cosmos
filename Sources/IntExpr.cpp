@@ -246,12 +246,12 @@ const IntExpr* IntExpr::read(CvXMLLoadUtility *pXML)
 	||  wcscmp(szTag, L"IntegrateCount") == 0)
 	{
 		CvString szTextVal;
-		pXML->GetChildXmlValByName(szTextVal, L"RelationType");
-		const RelationTypes eRelation = (RelationTypes) pXML->GetInfoClass(szTextVal);
+		RelationTypes eRelation = NO_RELATION;
+		pXML->GetInfoTypeValByName(&eRelation, L"RelationType");
 		int iData = -1;
 		pXML->GetOptionalChildXmlValByName(&iData, L"iDistance");
-		pXML->GetChildXmlValByName(szTextVal, L"GameObjectType");
-		const GameObjectTypes eType = (GameObjectTypes) pXML->GetInfoClass(szTextVal);
+		GameObjectTypes eType = NO_GAMEOBJECT;
+		pXML->GetInfoTypeValByName(&eType, L"GameObjectType");
 
 		const IntExpr* pExpr = NULL;
 		const BoolExpr* pBExpr = NULL;

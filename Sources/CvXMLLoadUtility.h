@@ -135,15 +135,13 @@ public:
 	template <typename Enum_t>
 	void GetInfoTypeValByName(Enum_t* val, const wchar_t* szName)
 	{
-		// Matt: TODO - add error msg
-		SetOptionalInfoType<NO_DELAYED_RESOLUTION>(this, *val, szName);
+		SetInfoType<NO_DELAYED_RESOLUTION>(*val, szName);
 	}
 
 	template <typename Enum_t>
 	void GetInfoTypeValByNameWithDelayedResolution(Enum_t* val, const wchar_t* szName)
 	{
-		// Matt: TODO - add error msg
-		SetOptionalInfoType<USE_DELAYED_RESOLUTION>(this, *val, szName);
+		SetInfoType<USE_DELAYED_RESOLUTION>(*val, szName);
 	}
 
 	template <typename Enum_t>
@@ -158,6 +156,50 @@ public:
 		SetOptionalInfoType<USE_DELAYED_RESOLUTION>(this, *val, szName);
 	}
 
+	template <DelayedResolutionTypes _delayedRes, typename Enum_t>
+	bool SetInfoType(Enum_t& val, const wchar_t* tag)
+	{
+		CvString szTextVal;
+		if (GetChildXmlValByName(szTextVal, tag))
+		{
+			if (_delayedRes == USE_DELAYED_RESOLUTION)
+				GC.addDelayedResolution(reinterpret_cast<int*>(&val), szTextVal);
+			else
+				val = static_cast<Enum_t>(GC.getInfoTypeForString(szTextVal));
+
+			return true;
+		}
+		return false;
+	}
+/*
+	template <DelayedResolutionTypes = NO_DELAYED_RESOLUTION>
+	struct SetInfoType
+	{
+		template <typename Enum_t>
+		SetInfoType(CvXMLLoadUtility* pXml, Enum_t& val, const wchar_t* tag)
+		{
+			CvString szTextVal;
+			if (pXml->GetChildXmlValByName(szTextVal, tag))
+			{
+				val = static_cast<Enum_t>(GC.getInfoTypeForString(szTextVal));
+			}
+		}
+	};
+
+	template <>
+	struct SetInfoType<USE_DELAYED_RESOLUTION>
+	{
+		template <typename Enum_t>
+		SetInfoType(CvXMLLoadUtility* pXml, Enum_t& val, const  wchar_t* tag)
+		{
+			CvString szTextVal;
+			if (pXml->GetChildXmlValByName(szTextVal, tag))
+			{
+				GC.addDelayedResolution(reinterpret_cast<int*>(&val), szTextVal);
+			}
+		}
+	};
+*/
 	template <DelayedResolutionTypes = NO_DELAYED_RESOLUTION>
 	struct SetOptionalInfoType
 	{

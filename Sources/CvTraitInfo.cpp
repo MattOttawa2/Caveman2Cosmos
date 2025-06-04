@@ -596,11 +596,6 @@ const char* CvTraitInfo::getShortDescription() const
 	return m_szShortDescription;
 }
 
-void CvTraitInfo::setShortDescription(const char* szVal)
-{
-	m_szShortDescription = szVal;
-}
-
 // Arrays
 
 int CvTraitInfo::getExtraYieldThreshold(int i) const
@@ -2799,14 +2794,13 @@ bool CvTraitInfo::read(CvXMLLoadUtility* pXML)
 {
 	PROFILE_EXTRA_FUNC();
 	CvString szTextVal;
-	CvString szTextVal2;
 	if (!CvInfoBase::read(pXML))
 	{
 		return false;
 	}
 
 	pXML->GetOptionalChildXmlValByName(szTextVal, L"ShortDescription");
-	setShortDescription(szTextVal);
+	m_szShortDescription = szTextVal;
 
 	pXML->GetOptionalChildXmlValByName(&m_iHealth, L"iHealth");
 	pXML->GetOptionalChildXmlValByName(&m_iHappiness, L"iHappiness");
@@ -2974,20 +2968,11 @@ bool CvTraitInfo::read(CvXMLLoadUtility* pXML)
 
 	//TB Traits Mods begin
 	//Textual References
-	pXML->GetOptionalChildXmlValByName(szTextVal, L"PromotionLine");
-	m_ePromotionLine = (PromotionLineTypes) pXML->GetInfoClass(szTextVal);
-
-	pXML->GetOptionalChildXmlValByName(szTextVal, L"GreatPeopleUnitType");
-	m_iGreatPeopleUnitType = (UnitTypes) pXML->GetInfoClass(szTextVal);
-
-	pXML->GetOptionalChildXmlValByName(szTextVal, L"GoldenAgeonBirthofGreatPersonType");
-	m_iGoldenAgeonBirthofGreatPeopleType = (UnitTypes) pXML->GetInfoClass(szTextVal);
-
-	pXML->GetOptionalChildXmlValByName(szTextVal, L"PrereqTech");
-	m_ePrereqTech = (TechTypes) pXML->GetInfoClass(szTextVal);
-
-	pXML->GetOptionalChildXmlValByName(szTextVal, L"EraAdvanceFreeSpecialistType");
-	m_eEraAdvanceFreeSpecialistType = (SpecialistTypes) pXML->GetInfoClass(szTextVal);
+	pXML->GetOptionalInfoTypeValByName(&m_ePromotionLine, L"PromotionLine");
+	pXML->GetOptionalInfoTypeValByName(&m_iGreatPeopleUnitType, L"GreatPeopleUnitType");
+	pXML->GetOptionalInfoTypeValByName(&m_iGoldenAgeonBirthofGreatPeopleType, L"GoldenAgeonBirthofGreatPersonType");
+	pXML->GetOptionalInfoTypeValByName(&m_ePrereqTech, L"PrereqTech");
+	pXML->GetOptionalInfoTypeValByName(&m_eEraAdvanceFreeSpecialistType, L"EraAdvanceFreeSpecialistType");
 
 	//integers
 	pXML->GetOptionalChildXmlValByName(&m_iWarWearinessAccumulationModifier, L"iWarWearinessAccumulationModifier");
@@ -3744,7 +3729,7 @@ void CvTraitInfo::copyNonDefaults(CvTraitInfo* pClassInfo)
 	CvString cDefault = CvString::format("").GetCString();
 	CvWString wDefault = CvWString::format(L"").GetCString();
 
-	if (getShortDescription() == cDefault) setShortDescription(pClassInfo->getShortDescription());
+	if (getShortDescription() == cDefault) m_szShortDescription = pClassInfo->getShortDescription();
 
 	CvInfoBase::copyNonDefaults(pClassInfo);
 

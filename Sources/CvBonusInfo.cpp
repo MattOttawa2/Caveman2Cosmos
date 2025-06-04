@@ -387,25 +387,16 @@ bool CvBonusInfo::read(CvXMLLoadUtility* pXML)
 {
 
 	PROFILE_EXTRA_FUNC();
-	CvString szTextVal;
 	if (!CvInfoBase::read(pXML))
 	{
 		return false;
 	}
 
-	pXML->GetOptionalChildXmlValByName(szTextVal, L"BonusClassType");
-	m_iBonusClassType = pXML->GetInfoClass(szTextVal);
-
+	pXML->GetOptionalInfoTypeValByName(&m_iBonusClassType, L"BonusClassType");
 	pXML->GetOptionalChildXmlValByName(m_szArtDefineTag, L"ArtDefineTag");
-
-	pXML->GetOptionalChildXmlValByName(szTextVal, L"TechReveal");
-	m_iTechReveal = pXML->GetInfoClass(szTextVal);
-
-	pXML->GetOptionalChildXmlValByName(szTextVal, L"TechCityTrade");
-	m_iTechCityTrade = pXML->GetInfoClass(szTextVal);
-
-	pXML->GetOptionalChildXmlValByName(szTextVal, L"TechObsolete");
-	m_iTechObsolete = pXML->GetInfoClass(szTextVal);
+	pXML->GetOptionalInfoTypeValByName(&m_iTechReveal, L"TechReveal");
+	pXML->GetOptionalInfoTypeValByName(&m_iTechCityTrade, L"TechCityTrade");
+	pXML->GetOptionalInfoTypeValByName(&m_iTechObsolete, L"TechObsolete");
 
 	if (pXML->TryMoveToXmlFirstChild(L"YieldChanges"))
 	{
@@ -471,8 +462,7 @@ bool CvBonusInfo::read(CvXMLLoadUtility* pXML)
 			{
 				do
 				{
-					pXML->GetChildXmlValByName(szTextVal, L"PromotionLineType");
-					m_aAfflictionCommunicabilityTypes[i].ePromotionLine = (PromotionLineTypes)pXML->GetInfoClass(szTextVal);
+					pXML->GetInfoTypeValByName(&m_aAfflictionCommunicabilityTypes[i].ePromotionLine, L"PromotionLineType");
 					pXML->GetChildXmlValByName(&(m_aAfflictionCommunicabilityTypes[i].iModifier), L"iCommunicability");
 					pXML->GetChildXmlValByName(&(m_aAfflictionCommunicabilityTypes[i].bWorkedTile), L"bWorkedTile");
 					pXML->GetChildXmlValByName(&(m_aAfflictionCommunicabilityTypes[i].bVicinity), L"bVicinity");

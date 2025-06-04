@@ -47,7 +47,6 @@ public:
 /********************************************************************************/
 
 	const char* getShortDescription() const;
-	void setShortDescription(const char* szVal);
 
 	// Arrays
 
