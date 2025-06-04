@@ -219,7 +219,7 @@ void CvXMLLoadUtility::ResetGlobalEffectInfo()
 
 	GC.m_paEffectInfo.clear();
 
-	LoadGlobalClassInfo(GC.m_paEffectInfo, "CIV4EffectInfos", "Misc", L"/Civ4EffectInfos/EffectInfos/EffectInfo", false);
+	LoadGlobalClassInfo(GC.m_paEffectInfo, "CIV4EffectInfos", "Misc", L"/Civ4EffectInfos/EffectInfos/EffectInfo");
 }
 
 //------------------------------------------------------------------------------------------------------

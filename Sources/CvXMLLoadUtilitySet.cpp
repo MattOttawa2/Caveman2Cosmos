@@ -583,7 +583,7 @@ bool CvXMLLoadUtility::SetupGlobalLandscapeInfo()
 	{
 		return false;
 	}
-	LoadGlobalClassInfo(GC.m_paLandscapeInfo, "CIV4TerrainSettings", "Terrain", L"/Civ4TerrainSettings/LandscapeInfos/LandscapeInfo", false);
+	LoadGlobalClassInfo(GC.m_paLandscapeInfo, "CIV4TerrainSettings", "Terrain", L"/Civ4TerrainSettings/LandscapeInfos/LandscapeInfo");
 
 	DestroyFXml(); // delete the pointer to the FXml variable
 	return true;
@@ -597,17 +597,17 @@ bool CvXMLLoadUtility::SetGlobalArtDefines()
 	{
 		return false;
 	}
-	LoadGlobalClassInfo(ARTFILEMGR.getInterfaceArtInfo(), "CIV4ArtDefines_Interface", "Art", L"/Civ4ArtDefines/InterfaceArtInfos/InterfaceArtInfo", false);
-	LoadGlobalClassInfo(ARTFILEMGR.getMovieArtInfo(), "CIV4ArtDefines_Movie", "Art", L"/Civ4ArtDefines/MovieArtInfos/MovieArtInfo", false);
-	LoadGlobalClassInfo(ARTFILEMGR.getMiscArtInfo(), "CIV4ArtDefines_Misc", "Art", L"/Civ4ArtDefines/MiscArtInfos/MiscArtInfo", false);
-	LoadGlobalClassInfo(ARTFILEMGR.getUnitArtInfo(), "CIV4ArtDefines_Unit", "Art", L"/Civ4ArtDefines/UnitArtInfos/UnitArtInfo", false);
-	LoadGlobalClassInfo(ARTFILEMGR.getBuildingArtInfo(), "CIV4ArtDefines_Building", "Art", L"/Civ4ArtDefines/BuildingArtInfos/BuildingArtInfo", false);
-	LoadGlobalClassInfo(ARTFILEMGR.getCivilizationArtInfo(), "CIV4ArtDefines_Civilization", "Art", L"/Civ4ArtDefines/CivilizationArtInfos/CivilizationArtInfo", false);
-	LoadGlobalClassInfo(ARTFILEMGR.getLeaderheadArtInfo(), "CIV4ArtDefines_Leaderhead", "Art", L"/Civ4ArtDefines/LeaderheadArtInfos/LeaderheadArtInfo", false);
-	LoadGlobalClassInfo(ARTFILEMGR.getBonusArtInfo(), "CIV4ArtDefines_Bonus", "Art", L"/Civ4ArtDefines/BonusArtInfos/BonusArtInfo", false);
-	LoadGlobalClassInfo(ARTFILEMGR.getImprovementArtInfo(), "CIV4ArtDefines_Improvement", "Art", L"/Civ4ArtDefines/ImprovementArtInfos/ImprovementArtInfo", false);
-	LoadGlobalClassInfo(ARTFILEMGR.getTerrainArtInfo(), "CIV4ArtDefines_Terrain", "Art", L"/Civ4ArtDefines/TerrainArtInfos/TerrainArtInfo", false);
-	LoadGlobalClassInfo(ARTFILEMGR.getFeatureArtInfo(), "CIV4ArtDefines_Feature", "Art", L"/Civ4ArtDefines/FeatureArtInfos/FeatureArtInfo", false);
+	LoadGlobalClassInfo(ARTFILEMGR.getInterfaceArtInfo(), "CIV4ArtDefines_Interface", "Art", L"/Civ4ArtDefines/InterfaceArtInfos/InterfaceArtInfo");
+	LoadGlobalClassInfo(ARTFILEMGR.getMovieArtInfo(), "CIV4ArtDefines_Movie", "Art", L"/Civ4ArtDefines/MovieArtInfos/MovieArtInfo");
+	LoadGlobalClassInfo(ARTFILEMGR.getMiscArtInfo(), "CIV4ArtDefines_Misc", "Art", L"/Civ4ArtDefines/MiscArtInfos/MiscArtInfo");
+	LoadGlobalClassInfo(ARTFILEMGR.getUnitArtInfo(), "CIV4ArtDefines_Unit", "Art", L"/Civ4ArtDefines/UnitArtInfos/UnitArtInfo");
+	LoadGlobalClassInfo(ARTFILEMGR.getBuildingArtInfo(), "CIV4ArtDefines_Building", "Art", L"/Civ4ArtDefines/BuildingArtInfos/BuildingArtInfo");
+	LoadGlobalClassInfo(ARTFILEMGR.getCivilizationArtInfo(), "CIV4ArtDefines_Civilization", "Art", L"/Civ4ArtDefines/CivilizationArtInfos/CivilizationArtInfo");
+	LoadGlobalClassInfo(ARTFILEMGR.getLeaderheadArtInfo(), "CIV4ArtDefines_Leaderhead", "Art", L"/Civ4ArtDefines/LeaderheadArtInfos/LeaderheadArtInfo");
+	LoadGlobalClassInfo(ARTFILEMGR.getBonusArtInfo(), "CIV4ArtDefines_Bonus", "Art", L"/Civ4ArtDefines/BonusArtInfos/BonusArtInfo");
+	LoadGlobalClassInfo(ARTFILEMGR.getImprovementArtInfo(), "CIV4ArtDefines_Improvement", "Art", L"/Civ4ArtDefines/ImprovementArtInfos/ImprovementArtInfo");
+	LoadGlobalClassInfo(ARTFILEMGR.getTerrainArtInfo(), "CIV4ArtDefines_Terrain", "Art", L"/Civ4ArtDefines/TerrainArtInfos/TerrainArtInfo");
+	LoadGlobalClassInfo(ARTFILEMGR.getFeatureArtInfo(), "CIV4ArtDefines_Feature", "Art", L"/Civ4ArtDefines/FeatureArtInfos/FeatureArtInfo");
 
 	DestroyFXml();
 	return true;
@@ -700,14 +700,14 @@ bool CvXMLLoadUtility::LoadBasicInfos()
 		return false;
 	}
 
-	LoadGlobalClassInfo(GC.m_paConceptInfo, "CIV4BasicInfos", "BasicInfos", L"/Civ4BasicInfos/ConceptInfos/ConceptInfo", false);
-	LoadGlobalClassInfo(GC.m_paNewConceptInfo, "CIV4NewConceptInfos", "BasicInfos", L"/Civ4NewConceptInfos/NewConceptInfos/NewConceptInfo", false);
-	LoadGlobalClassInfo(GC.m_paCityTabInfo, "CIV4CityTabInfos", "BasicInfos", L"/Civ4CityTabInfos/CityTabInfos/CityTabInfo", false);
-	LoadGlobalClassInfo(GC.m_paCalendarInfo, "CIV4CalendarInfos", "BasicInfos", L"/Civ4CalendarInfos/CalendarInfos/CalendarInfo", false);
-	LoadGlobalClassInfo(GC.m_paSeasonInfo, "CIV4SeasonInfos", "BasicInfos", L"/Civ4SeasonInfos/SeasonInfos/SeasonInfo", false);
-	LoadGlobalClassInfo(GC.m_paMonthInfo, "CIV4MonthInfos", "BasicInfos", L"/Civ4MonthInfos/MonthInfos/MonthInfo", false);
-	LoadGlobalClassInfo(GC.m_paDenialInfo, "CIV4DenialInfos", "BasicInfos", L"/Civ4DenialInfos/DenialInfos/DenialInfo", false);
-	LoadGlobalClassInfo(GC.m_paDomainInfo, "CIV4DomainInfos", "BasicInfos", L"/Civ4DomainInfos/DomainInfos/DomainInfo", false);
+	LoadGlobalClassInfo(GC.m_paConceptInfo, "CIV4BasicInfos", "BasicInfos", L"/Civ4BasicInfos/ConceptInfos/ConceptInfo");
+	LoadGlobalClassInfo(GC.m_paNewConceptInfo, "CIV4NewConceptInfos", "BasicInfos", L"/Civ4NewConceptInfos/NewConceptInfos/NewConceptInfo");
+	LoadGlobalClassInfo(GC.m_paCityTabInfo, "CIV4CityTabInfos", "BasicInfos", L"/Civ4CityTabInfos/CityTabInfos/CityTabInfo");
+	LoadGlobalClassInfo(GC.m_paCalendarInfo, "CIV4CalendarInfos", "BasicInfos", L"/Civ4CalendarInfos/CalendarInfos/CalendarInfo");
+	LoadGlobalClassInfo(GC.m_paSeasonInfo, "CIV4SeasonInfos", "BasicInfos", L"/Civ4SeasonInfos/SeasonInfos/SeasonInfo");
+	LoadGlobalClassInfo(GC.m_paMonthInfo, "CIV4MonthInfos", "BasicInfos", L"/Civ4MonthInfos/MonthInfos/MonthInfo");
+	LoadGlobalClassInfo(GC.m_paDenialInfo, "CIV4DenialInfos", "BasicInfos", L"/Civ4DenialInfos/DenialInfos/DenialInfo");
+	LoadGlobalClassInfo(GC.m_paDomainInfo, "CIV4DomainInfos", "BasicInfos", L"/Civ4DomainInfos/DomainInfos/DomainInfo");
 	//	Koshling - replaced XML-based registration of UNITAI types with internal registration.  Since they are a DLL-defined enum
 	//	anyway this allows new UNITAIs to be defined freely without ordering issues (in the XML or DLL), which in turn makes it
 	//	easier to merge mods with different UNITAI changes.  The XML is retained purely for documentary purposes
@@ -723,9 +723,9 @@ bool CvXMLLoadUtility::LoadBasicInfos()
 	GC.registerPropertyInteractions();
 	GC.registerPropertyPropagators();
 	GC.registerClimateZones();
-	//LoadGlobalClassInfo(GC.m_paUnitAIInfo(), "CIV4UnitAIInfos", "BasicInfos", L"CIV4UnitAIInfos/UnitAIInfos/UnitAIInfo", false);
-	LoadGlobalClassInfo(GC.m_paAttitudeInfos, "CIV4AttitudeInfos", "BasicInfos", L"/Civ4AttitudeInfos/AttitudeInfos/AttitudeInfo", false);
-	LoadGlobalClassInfo(GC.m_paMemoryInfos, "CIV4MemoryInfos", "BasicInfos", L"/Civ4MemoryInfos/MemoryInfos/MemoryInfo", false);
+	//LoadGlobalClassInfo(GC.m_paUnitAIInfo(), "CIV4UnitAIInfos", "BasicInfos", L"CIV4UnitAIInfos/UnitAIInfos/UnitAIInfo");
+	LoadGlobalClassInfo(GC.m_paAttitudeInfos, "CIV4AttitudeInfos", "BasicInfos", L"/Civ4AttitudeInfos/AttitudeInfos/AttitudeInfo");
+	LoadGlobalClassInfo(GC.m_paMemoryInfos, "CIV4MemoryInfos", "BasicInfos", L"/Civ4MemoryInfos/MemoryInfos/MemoryInfo");
 
 	DestroyFXml();
 
@@ -758,40 +758,40 @@ bool CvXMLLoadUtility::LoadPreMenuGlobals()
 		return false;
 	}
 	OutputDebugString("Begin load global infos\n");
-	LoadGlobalClassInfo(GC.m_paCategoryInfo, "CIV4CategoryInfos", "GameInfo", L"/Civ4CategoryInfos/CategoryInfos/CategoryInfo", false);
-	LoadGlobalClassInfo(GC.m_paInvisibleInfo, "CIV4InvisibleInfos", "Units", L"/Civ4InvisibleInfos/InvisibleInfos/InvisibleInfo", false);
-	LoadGlobalClassInfo(GC.m_paMapCategoryInfo, "CIV4MapCategoryInfos", "Terrain", L"/Civ4MapCategoryInfos/MapCategoryInfos/MapCategoryInfo", false);
-	LoadGlobalClassInfo(GC.m_paMapInfo, "CIV4MapInfo", "GameInfo", L"/Civ4MapInfos/MapInfos/MapInfo", false);
-	LoadGlobalClassInfo(GC.m_paGameSpeedInfo, "CIV4GameSpeedInfo", "GameInfo", L"/Civ4GameSpeedInfo/GameSpeedInfos/GameSpeedInfo", false, &GC.m_GameSpeedInfoReplacements);
-	LoadGlobalClassInfo(GC.m_paGameOptionInfos, "CIV4GameOptionInfos", "GameInfo", L"/Civ4GameOptionInfos/GameOptionInfos/GameOptionInfo", false);
-	LoadGlobalClassInfo(GC.m_paColorInfo, "CIV4ColorVals", "Interface", L"/Civ4ColorVals/ColorVals/ColorVal", false);
-	LoadGlobalClassInfo(GC.m_paTurnTimerInfo, "CIV4TurnTimerInfo", "GameInfo", L"/Civ4TurnTimerInfo/TurnTimerInfos/TurnTimerInfo", false);
-	LoadGlobalClassInfo(GC.m_paWorldInfo, "CIV4WorldInfo", "GameInfo", L"/Civ4WorldInfo/WorldInfos/WorldInfo", false, &GC.m_WorldInfoReplacements);
-	LoadGlobalClassInfo(GC.m_paClimateInfo, "CIV4ClimateInfo", "GameInfo", L"/Civ4ClimateInfo/ClimateInfos/ClimateInfo", false);
-	LoadGlobalClassInfo(GC.m_paSeaLevelInfo, "CIV4SeaLevelInfo", "GameInfo", L"/Civ4SeaLevelInfo/SeaLevelInfos/SeaLevelInfo", false);
-	LoadGlobalClassInfo(GC.m_paAdvisorInfo, "CIV4AdvisorInfos", "Interface", L"/Civ4AdvisorInfos/AdvisorInfos/AdvisorInfo", false);
-	LoadGlobalClassInfo(GC.m_paIdeaClassInfo, "CIV4IdeaClassInfos", "GameInfo", L"/Civ4IdeaClassInfos/IdeaClassInfos/IdeaClassInfo", false);
-	LoadGlobalClassInfo(GC.m_paIdeaInfo, "CIV4IdeaInfos", "GameInfo", L"/Civ4IdeaInfos/IdeaInfos/IdeaInfo", false);
-	LoadGlobalClassInfo(GC.m_paTerrainInfo, "CIV4TerrainInfos", "Terrain", L"/Civ4TerrainInfos/TerrainInfos/TerrainInfo", false, &GC.m_TerrainInfoReplacements);
-	LoadGlobalClassInfo(GC.m_paYieldInfo, "CIV4YieldInfos", "Terrain", L"/Civ4YieldInfos/YieldInfos/YieldInfo", false);
-	LoadGlobalClassInfo(GC.m_paCommerceInfo, "CIV4CommerceInfo", "GameInfo", L"/Civ4CommerceInfo/CommerceInfos/CommerceInfo", false);
-	LoadGlobalClassInfo(GC.m_aEraInfo, "CIV4EraInfos", "GameInfo", L"/Civ4EraInfos/EraInfos/EraInfo", false, &GC.m_EraInfoReplacements);
-	LoadGlobalClassInfo(GC.m_paAnimationCategoryInfo, "CIV4AnimationInfos", "Units", L"/Civ4AnimationInfos/AnimationCategories/AnimationCategory", false);
-	LoadGlobalClassInfo(GC.m_paAnimationPathInfo, "CIV4AnimationPathInfos", "Units", L"/Civ4AnimationPathInfos/AnimationPaths/AnimationPath", false);
-	LoadGlobalClassInfo(GC.m_paCursorInfo, "CIV4CursorInfo", "GameInfo", L"/Civ4CursorInfo/CursorInfos/CursorInfo", false);
-	LoadGlobalClassInfo(GC.m_paCivicOptionInfo, "CIV4CivicOptionInfos", "Civilizations", L"/Civ4CivicOptionInfos/CivicOptionInfos/CivicOptionInfo", false);
-	LoadGlobalClassInfo(GC.m_paUpkeepInfo, "CIV4UpkeepInfo", "GameInfo", L"/Civ4UpkeepInfo/UpkeepInfos/UpkeepInfo", false);
-	LoadGlobalClassInfo(GC.m_paCultureLevelInfo, "CIV4CultureLevelInfo", "GameInfo", L"/Civ4CultureLevelInfo/CultureLevelInfos/CultureLevelInfo", false, &GC.m_CultureLevelInfoReplacements);
-	LoadGlobalClassInfo(GC.m_paBonusClassInfo, "CIV4BonusClassInfos", "Terrain", L"/Civ4BonusClassInfos/BonusClassInfos/BonusClassInfo", false, &GC.m_BonusClassInfoReplacements);
-	LoadGlobalClassInfo(GC.m_paVictoryInfo, "CIV4VictoryInfo", "GameInfo", L"/Civ4VictoryInfo/VictoryInfos/VictoryInfo", false);
-	LoadGlobalClassInfo(GC.m_paEffectInfo, "CIV4EffectInfos", "Misc", L"/Civ4EffectInfos/EffectInfos/EffectInfo", false);
-	LoadGlobalClassInfo(GC.m_paEntityEventInfo, "CIV4EntityEventInfos", "Units", L"/Civ4EntityEventInfos/EntityEventInfos/EntityEventInfo", false);
-	LoadGlobalClassInfo(GC.m_paPropertyInfo, "CIV4PropertyInfos", "GameInfo", L"/Civ4PropertyInfos/PropertyInfos/PropertyInfo", false);
-	LoadGlobalClassInfo(GC.m_paSpecialistInfo, "CIV4SpecialistInfos", "GameInfo", L"/Civ4SpecialistInfos/SpecialistInfos/SpecialistInfo", false, &GC.m_SpecialistInfoReplacements);
-	LoadGlobalClassInfo(GC.m_paVoteSourceInfo, "CIV4VoteSourceInfos", "GameInfo", L"/Civ4VoteSourceInfos/VoteSourceInfos/VoteSourceInfo", false);
-	LoadGlobalClassInfo(GC.m_paTechInfo, "CIV4TechInfos", "Technologies", L"/Civ4TechInfos/TechInfos/TechInfo", false, &GC.m_TechInfoReplacements);
-	LoadGlobalClassInfo(GC.m_paFeatureInfo, "CIV4FeatureInfos", "Terrain", L"/Civ4FeatureInfos/FeatureInfos/FeatureInfo", false, &GC.m_FeatureInfoReplacements);
-	LoadGlobalClassInfo(GC.m_paReligionInfo, "CIV4ReligionInfo", "GameInfo", L"/Civ4ReligionInfo/ReligionInfos/ReligionInfo", false, &GC.m_ReligionInfoReplacements);
+	LoadGlobalClassInfo(GC.m_paCategoryInfo, "CIV4CategoryInfos", "GameInfo", L"/Civ4CategoryInfos/CategoryInfos/CategoryInfo");
+	LoadGlobalClassInfo(GC.m_paInvisibleInfo, "CIV4InvisibleInfos", "Units", L"/Civ4InvisibleInfos/InvisibleInfos/InvisibleInfo");
+	LoadGlobalClassInfo(GC.m_paMapCategoryInfo, "CIV4MapCategoryInfos", "Terrain", L"/Civ4MapCategoryInfos/MapCategoryInfos/MapCategoryInfo");
+	LoadGlobalClassInfo(GC.m_paMapInfo, "CIV4MapInfo", "GameInfo", L"/Civ4MapInfos/MapInfos/MapInfo");
+	LoadGlobalClassInfo(GC.m_paGameSpeedInfo, "CIV4GameSpeedInfo", "GameInfo", L"/Civ4GameSpeedInfo/GameSpeedInfos/GameSpeedInfo", &GC.m_GameSpeedInfoReplacements);
+	LoadGlobalClassInfo(GC.m_paGameOptionInfos, "CIV4GameOptionInfos", "GameInfo", L"/Civ4GameOptionInfos/GameOptionInfos/GameOptionInfo");
+	LoadGlobalClassInfo(GC.m_paColorInfo, "CIV4ColorVals", "Interface", L"/Civ4ColorVals/ColorVals/ColorVal");
+	LoadGlobalClassInfo(GC.m_paTurnTimerInfo, "CIV4TurnTimerInfo", "GameInfo", L"/Civ4TurnTimerInfo/TurnTimerInfos/TurnTimerInfo");
+	LoadGlobalClassInfo(GC.m_paWorldInfo, "CIV4WorldInfo", "GameInfo", L"/Civ4WorldInfo/WorldInfos/WorldInfo", &GC.m_WorldInfoReplacements);
+	LoadGlobalClassInfo(GC.m_paClimateInfo, "CIV4ClimateInfo", "GameInfo", L"/Civ4ClimateInfo/ClimateInfos/ClimateInfo");
+	LoadGlobalClassInfo(GC.m_paSeaLevelInfo, "CIV4SeaLevelInfo", "GameInfo", L"/Civ4SeaLevelInfo/SeaLevelInfos/SeaLevelInfo");
+	LoadGlobalClassInfo(GC.m_paAdvisorInfo, "CIV4AdvisorInfos", "Interface", L"/Civ4AdvisorInfos/AdvisorInfos/AdvisorInfo");
+	LoadGlobalClassInfo(GC.m_paIdeaClassInfo, "CIV4IdeaClassInfos", "GameInfo", L"/Civ4IdeaClassInfos/IdeaClassInfos/IdeaClassInfo");
+	LoadGlobalClassInfo(GC.m_paIdeaInfo, "CIV4IdeaInfos", "GameInfo", L"/Civ4IdeaInfos/IdeaInfos/IdeaInfo");
+	LoadGlobalClassInfo(GC.m_paTerrainInfo, "CIV4TerrainInfos", "Terrain", L"/Civ4TerrainInfos/TerrainInfos/TerrainInfo", &GC.m_TerrainInfoReplacements);
+	LoadGlobalClassInfo(GC.m_paYieldInfo, "CIV4YieldInfos", "Terrain", L"/Civ4YieldInfos/YieldInfos/YieldInfo");
+	LoadGlobalClassInfo(GC.m_paCommerceInfo, "CIV4CommerceInfo", "GameInfo", L"/Civ4CommerceInfo/CommerceInfos/CommerceInfo");
+	LoadGlobalClassInfo(GC.m_aEraInfo, "CIV4EraInfos", "GameInfo", L"/Civ4EraInfos/EraInfos/EraInfo", &GC.m_EraInfoReplacements);
+	LoadGlobalClassInfo(GC.m_paAnimationCategoryInfo, "CIV4AnimationInfos", "Units", L"/Civ4AnimationInfos/AnimationCategories/AnimationCategory");
+	LoadGlobalClassInfo(GC.m_paAnimationPathInfo, "CIV4AnimationPathInfos", "Units", L"/Civ4AnimationPathInfos/AnimationPaths/AnimationPath");
+	LoadGlobalClassInfo(GC.m_paCursorInfo, "CIV4CursorInfo", "GameInfo", L"/Civ4CursorInfo/CursorInfos/CursorInfo");
+	LoadGlobalClassInfo(GC.m_paCivicOptionInfo, "CIV4CivicOptionInfos", "Civilizations", L"/Civ4CivicOptionInfos/CivicOptionInfos/CivicOptionInfo");
+	LoadGlobalClassInfo(GC.m_paUpkeepInfo, "CIV4UpkeepInfo", "GameInfo", L"/Civ4UpkeepInfo/UpkeepInfos/UpkeepInfo");
+	LoadGlobalClassInfo(GC.m_paCultureLevelInfo, "CIV4CultureLevelInfo", "GameInfo", L"/Civ4CultureLevelInfo/CultureLevelInfos/CultureLevelInfo", &GC.m_CultureLevelInfoReplacements);
+	LoadGlobalClassInfo(GC.m_paBonusClassInfo, "CIV4BonusClassInfos", "Terrain", L"/Civ4BonusClassInfos/BonusClassInfos/BonusClassInfo", &GC.m_BonusClassInfoReplacements);
+	LoadGlobalClassInfo(GC.m_paVictoryInfo, "CIV4VictoryInfo", "GameInfo", L"/Civ4VictoryInfo/VictoryInfos/VictoryInfo");
+	LoadGlobalClassInfo(GC.m_paEffectInfo, "CIV4EffectInfos", "Misc", L"/Civ4EffectInfos/EffectInfos/EffectInfo");
+	LoadGlobalClassInfo(GC.m_paEntityEventInfo, "CIV4EntityEventInfos", "Units", L"/Civ4EntityEventInfos/EntityEventInfos/EntityEventInfo");
+	LoadGlobalClassInfo(GC.m_paPropertyInfo, "CIV4PropertyInfos", "GameInfo", L"/Civ4PropertyInfos/PropertyInfos/PropertyInfo");
+	LoadGlobalClassInfo(GC.m_paSpecialistInfo, "CIV4SpecialistInfos", "GameInfo", L"/Civ4SpecialistInfos/SpecialistInfos/SpecialistInfo", &GC.m_SpecialistInfoReplacements);
+	LoadGlobalClassInfo(GC.m_paVoteSourceInfo, "CIV4VoteSourceInfos", "GameInfo", L"/Civ4VoteSourceInfos/VoteSourceInfos/VoteSourceInfo");
+	LoadGlobalClassInfo(GC.m_paTechInfo, "CIV4TechInfos", "Technologies", L"/Civ4TechInfos/TechInfos/TechInfo", &GC.m_TechInfoReplacements);
+	LoadGlobalClassInfo(GC.m_paFeatureInfo, "CIV4FeatureInfos", "Terrain", L"/Civ4FeatureInfos/FeatureInfos/FeatureInfo", &GC.m_FeatureInfoReplacements);
+	LoadGlobalClassInfo(GC.m_paReligionInfo, "CIV4ReligionInfo", "GameInfo", L"/Civ4ReligionInfo/ReligionInfos/ReligionInfo", &GC.m_ReligionInfoReplacements);
 	// TGA indexation - important must do before anything else
 	std::vector<CvReligionInfo*>& aReligionInfos = GC.m_paReligionInfo;
 	std::sort(aReligionInfos.begin(), aReligionInfos.end(), cmpReligionTGA);
@@ -800,20 +800,20 @@ bool CvXMLLoadUtility::LoadPreMenuGlobals()
 		GC.setInfoTypeFromString(aReligionInfos.at(i)->getType(), i);
 	}
 
-	LoadGlobalClassInfo(GC.m_heritageInfo, "HeritageInfos", "Civilizations", L"/C2C_HeritageInfos/HeritageInfos/HeritageInfo", false);
-	LoadGlobalClassInfo(GC.m_paBonusInfo, "CIV4BonusInfos", "Terrain", L"/Civ4BonusInfos/BonusInfos/BonusInfo", false, &GC.m_BonusInfoReplacements);
-	LoadGlobalClassInfo(GC.m_paSpecialUnitInfo, "CIV4SpecialUnitInfos", "Units", L"/Civ4SpecialUnitInfos/SpecialUnitInfos/SpecialUnitInfo", false);
+	LoadGlobalClassInfo(GC.m_heritageInfo, "HeritageInfos", "Civilizations", L"/C2C_HeritageInfos/HeritageInfos/HeritageInfo");
+	LoadGlobalClassInfo(GC.m_paBonusInfo, "CIV4BonusInfos", "Terrain", L"/Civ4BonusInfos/BonusInfos/BonusInfo", &GC.m_BonusInfoReplacements);
+	LoadGlobalClassInfo(GC.m_paSpecialUnitInfo, "CIV4SpecialUnitInfos", "Units", L"/Civ4SpecialUnitInfos/SpecialUnitInfos/SpecialUnitInfo");
 	shouldHaveType = true;
-	LoadGlobalClassInfo(GC.m_paRouteInfo, "CIV4RouteInfos", "Misc", L"/Civ4RouteInfos/RouteInfos/RouteInfo", false, &GC.m_RouteInfoReplacements);
+	LoadGlobalClassInfo(GC.m_paRouteInfo, "CIV4RouteInfos", "Misc", L"/Civ4RouteInfos/RouteInfos/RouteInfo", &GC.m_RouteInfoReplacements);
 	shouldHaveType = false;
-	LoadGlobalClassInfo(GC.m_paImprovementInfo, "CIV4ImprovementInfos", "Terrain", L"/Civ4ImprovementInfos/ImprovementInfos/ImprovementInfo", false, &GC.m_ImprovementInfoReplacements);
-	LoadGlobalClassInfo(GC.m_paUnitCombatInfo, "CIV4UnitCombatInfos", "Units", L"/Civ4UnitCombatInfos/UnitCombatInfos/UnitCombatInfo", false);
+	LoadGlobalClassInfo(GC.m_paImprovementInfo, "CIV4ImprovementInfos", "Terrain", L"/Civ4ImprovementInfos/ImprovementInfos/ImprovementInfo", &GC.m_ImprovementInfoReplacements);
+	LoadGlobalClassInfo(GC.m_paUnitCombatInfo, "CIV4UnitCombatInfos", "Units", L"/Civ4UnitCombatInfos/UnitCombatInfos/UnitCombatInfo");
 	//TB Promotion Line Mod begin
-	LoadGlobalClassInfo(GC.m_paPromotionLineInfo, "CIV4PromotionLineInfos", "Units", L"/Civ4PromotionLineInfos/PromotionLineInfos/PromotionLineInfo", false);
+	LoadGlobalClassInfo(GC.m_paPromotionLineInfo, "CIV4PromotionLineInfos", "Units", L"/Civ4PromotionLineInfos/PromotionLineInfos/PromotionLineInfo");
 	//TB Promotion Line Mod begin
-	LoadGlobalClassInfo(GC.m_paPromotionInfo, "CIV4PromotionInfos", "Units", L"/Civ4PromotionInfos/PromotionInfos/PromotionInfo", false, &GC.m_PromotionInfoReplacements);
-	LoadGlobalClassInfo(GC.m_paHurryInfo, "CIV4HurryInfo", "GameInfo", L"/Civ4HurryInfo/HurryInfos/HurryInfo", false);
-	LoadGlobalClassInfo(GC.m_paCorporationInfo, "CIV4CorporationInfo", "GameInfo", L"/Civ4CorporationInfo/CorporationInfos/CorporationInfo", false, &GC.m_CorporationInfoReplacements);
+	LoadGlobalClassInfo(GC.m_paPromotionInfo, "CIV4PromotionInfos", "Units", L"/Civ4PromotionInfos/PromotionInfos/PromotionInfo", &GC.m_PromotionInfoReplacements);
+	LoadGlobalClassInfo(GC.m_paHurryInfo, "CIV4HurryInfo", "GameInfo", L"/Civ4HurryInfo/HurryInfos/HurryInfo");
+	LoadGlobalClassInfo(GC.m_paCorporationInfo, "CIV4CorporationInfo", "GameInfo", L"/Civ4CorporationInfo/CorporationInfos/CorporationInfo", &GC.m_CorporationInfoReplacements);
 	// TGA indexation - important must do before anything else
 	std::vector<CvCorporationInfo*>& aCorporationInfos = GC.m_paCorporationInfo;
 	std::sort(aCorporationInfos.begin(), aCorporationInfos.end(), cmpCorporationTGA);
@@ -822,19 +822,19 @@ bool CvXMLLoadUtility::LoadPreMenuGlobals()
 		GC.setInfoTypeFromString(aCorporationInfos.at(i)->getType(), i);
 	}
 
-	LoadGlobalClassInfo(GC.m_paSpecialBuildingInfo, "CIV4SpecialBuildingInfos", "Buildings", L"/Civ4SpecialBuildingInfos/SpecialBuildingInfos/SpecialBuildingInfo", false, &GC.m_SpecialBuildingInfoReplacements);
-	LoadGlobalClassInfo(GC.m_paBuildingInfo, "CIV4BuildingInfos", "Buildings", L"/Civ4BuildingInfos/BuildingInfos/BuildingInfo", false, &GC.m_BuildingInfoReplacements);
-	LoadGlobalClassInfo(GC.m_paCivicInfo, "CIV4CivicInfos", "Civilizations", L"/Civ4CivicInfos/CivicInfos/CivicInfo", false, &GC.m_CivicInfoReplacements);
-	LoadGlobalClassInfo(GC.m_paPlayerColorInfo, "CIV4PlayerColorInfos", "Interface", L"/Civ4PlayerColorInfos/PlayerColorInfos/PlayerColorInfo", false);
-	LoadGlobalClassInfo(GC.m_paBuildInfo, "CIV4BuildInfos", "Units", L"/Civ4BuildInfos/BuildInfos/BuildInfo", false, &GC.m_BuildInfoReplacements);
-	LoadGlobalClassInfo(GC.m_paOutcomeInfo, "CIV4OutcomeInfos", "GameInfo", L"/Civ4OutcomeInfos/OutcomeInfos/OutcomeInfo", false);
+	LoadGlobalClassInfo(GC.m_paSpecialBuildingInfo, "CIV4SpecialBuildingInfos", "Buildings", L"/Civ4SpecialBuildingInfos/SpecialBuildingInfos/SpecialBuildingInfo", &GC.m_SpecialBuildingInfoReplacements);
+	LoadGlobalClassInfo(GC.m_paBuildingInfo, "CIV4BuildingInfos", "Buildings", L"/Civ4BuildingInfos/BuildingInfos/BuildingInfo", &GC.m_BuildingInfoReplacements);
+	LoadGlobalClassInfo(GC.m_paCivicInfo, "CIV4CivicInfos", "Civilizations", L"/Civ4CivicInfos/CivicInfos/CivicInfo", &GC.m_CivicInfoReplacements);
+	LoadGlobalClassInfo(GC.m_paPlayerColorInfo, "CIV4PlayerColorInfos", "Interface", L"/Civ4PlayerColorInfos/PlayerColorInfos/PlayerColorInfo");
+	LoadGlobalClassInfo(GC.m_paBuildInfo, "CIV4BuildInfos", "Units", L"/Civ4BuildInfos/BuildInfos/BuildInfo", &GC.m_BuildInfoReplacements);
+	LoadGlobalClassInfo(GC.m_paOutcomeInfo, "CIV4OutcomeInfos", "GameInfo", L"/Civ4OutcomeInfos/OutcomeInfos/OutcomeInfo");
 
 	//	AlbertS2: Register mission types
 	GC.registerMissions();
-	LoadGlobalClassInfo(GC.m_paMissionInfo, "CIV4MissionInfos", "Units", L"/Civ4MissionInfos/MissionInfos/MissionInfo", false);
-	LoadGlobalClassInfo(GC.m_paUnitInfo, "CIV4UnitInfos", "Units", L"/Civ4UnitInfos/UnitInfos/UnitInfo", false, &GC.m_UnitInfoReplacements);
-	LoadGlobalClassInfo(GC.m_paTraitInfo, "CIV4TraitInfos", "Civilizations", L"/Civ4TraitInfos/TraitInfos/TraitInfo", false, &GC.m_TraitInfoReplacements);
-	LoadGlobalClassInfo(GC.m_paLeaderHeadInfo, "CIV4LeaderHeadInfos", "Civilizations", L"/Civ4LeaderHeadInfos/LeaderHeadInfos/LeaderHeadInfo", false, &GC.m_LeaderHeadInfoReplacements);
+	LoadGlobalClassInfo(GC.m_paMissionInfo, "CIV4MissionInfos", "Units", L"/Civ4MissionInfos/MissionInfos/MissionInfo");
+	LoadGlobalClassInfo(GC.m_paUnitInfo, "CIV4UnitInfos", "Units", L"/Civ4UnitInfos/UnitInfos/UnitInfo", &GC.m_UnitInfoReplacements);
+	LoadGlobalClassInfo(GC.m_paTraitInfo, "CIV4TraitInfos", "Civilizations", L"/Civ4TraitInfos/TraitInfos/TraitInfo", &GC.m_TraitInfoReplacements);
+	LoadGlobalClassInfo(GC.m_paLeaderHeadInfo, "CIV4LeaderHeadInfos", "Civilizations", L"/Civ4LeaderHeadInfos/LeaderHeadInfos/LeaderHeadInfo", &GC.m_LeaderHeadInfoReplacements);
 
 	OutputDebugString("Pre leaderhead sort\n");
 	std::sort(GC.m_paLeaderHeadInfo.begin(), GC.m_paLeaderHeadInfo.end(), cmpInfoByAlphabet);
@@ -844,10 +844,10 @@ bool CvXMLLoadUtility::LoadPreMenuGlobals()
 	}
 	OutputDebugString("Post leaderhead sort\n");
 
-	LoadGlobalClassInfo(GC.m_paUnitArtStyleTypeInfo, "CIV4UnitArtStyleTypeInfos", "Civilizations", L"/Civ4UnitArtStyleTypeInfos/UnitArtStyleTypeInfos/UnitArtStyleTypeInfo", false);
-	LoadGlobalClassInfo(GC.m_paCivilizationInfo, "CIV4CivilizationInfos", "Civilizations", L"/Civ4CivilizationInfos/CivilizationInfos/CivilizationInfo", false, &GC.m_CivilizationInfoReplacements);
+	LoadGlobalClassInfo(GC.m_paUnitArtStyleTypeInfo, "CIV4UnitArtStyleTypeInfos", "Civilizations", L"/Civ4UnitArtStyleTypeInfos/UnitArtStyleTypeInfos/UnitArtStyleTypeInfo");
+	LoadGlobalClassInfo(GC.m_paCivilizationInfo, "CIV4CivilizationInfos", "Civilizations", L"/Civ4CivilizationInfos/CivilizationInfos/CivilizationInfo", &GC.m_CivilizationInfoReplacements);
 
-	LoadGlobalClassInfo(GC.m_paProjectInfo, "CIV4ProjectInfo", "GameInfo", L"/Civ4ProjectInfo/ProjectInfos/ProjectInfo", false, &GC.m_ProjectInfoReplacements);
+	LoadGlobalClassInfo(GC.m_paProjectInfo, "CIV4ProjectInfo", "GameInfo", L"/Civ4ProjectInfo/ProjectInfos/ProjectInfo", &GC.m_ProjectInfoReplacements);
 
 	OutputDebugString("Pre civ sort\n");
 	std::sort(GC.m_paCivilizationInfo.begin(), GC.m_paCivilizationInfo.end(), cmpInfoByAlphabet);
@@ -857,23 +857,23 @@ bool CvXMLLoadUtility::LoadPreMenuGlobals()
 	}
 	OutputDebugString("Post civ sort\n");
 
-	LoadGlobalClassInfo(GC.m_paHints, "CIV4Hints", "GameInfo", L"/Civ4Hints/HintInfos/HintInfo", false);
-	LoadGlobalClassInfo(GC.m_paMainMenus, "CIV4MainMenus", "Art", L"/Civ4MainMenus/MainMenus/MainMenu", false);
-	LoadGlobalClassInfo(GC.m_paSlideShowInfo, "CIV4SlideShowInfos", "Interface", L"/Civ4SlideShowInfos/SlideShowInfos/SlideShowInfo", false);
-	LoadGlobalClassInfo(GC.m_paSlideShowRandomInfo, "CIV4SlideShowRandomInfos", "Interface", L"/Civ4SlideShowRandomInfos/SlideShowRandomInfos/SlideShowRandomInfo", false);
-	LoadGlobalClassInfo(GC.m_paWorldPickerInfo, "CIV4WorldPickerInfos", "Interface", L"/Civ4WorldPickerInfos/WorldPickerInfos/WorldPickerInfo", false);
-	LoadGlobalClassInfo(GC.m_paSpaceShipInfo, "CIV4SpaceShipInfos", "Interface", L"/Civ4SpaceShipInfos/SpaceShipInfos/SpaceShipInfo", false);
+	LoadGlobalClassInfo(GC.m_paHints, "CIV4Hints", "GameInfo", L"/Civ4Hints/HintInfos/HintInfo");
+	LoadGlobalClassInfo(GC.m_paMainMenus, "CIV4MainMenus", "Art", L"/Civ4MainMenus/MainMenus/MainMenu");
+	LoadGlobalClassInfo(GC.m_paSlideShowInfo, "CIV4SlideShowInfos", "Interface", L"/Civ4SlideShowInfos/SlideShowInfos/SlideShowInfo");
+	LoadGlobalClassInfo(GC.m_paSlideShowRandomInfo, "CIV4SlideShowRandomInfos", "Interface", L"/Civ4SlideShowRandomInfos/SlideShowRandomInfos/SlideShowRandomInfo");
+	LoadGlobalClassInfo(GC.m_paWorldPickerInfo, "CIV4WorldPickerInfos", "Interface", L"/Civ4WorldPickerInfos/WorldPickerInfos/WorldPickerInfo");
+	LoadGlobalClassInfo(GC.m_paSpaceShipInfo, "CIV4SpaceShipInfos", "Interface", L"/Civ4SpaceShipInfos/SpaceShipInfos/SpaceShipInfo");
 
 	shouldHaveType = true;
-	LoadGlobalClassInfo(GC.m_paGoodyInfo, "CIV4GoodyInfo", "GameInfo", L"/Civ4GoodyInfo/GoodyInfos/GoodyInfo", false);
-	LoadGlobalClassInfo(GC.m_paHandicapInfo, "CIV4HandicapInfo", "GameInfo", L"/Civ4HandicapInfo/HandicapInfos/HandicapInfo", false, &GC.m_HandicapInfoReplacements);
+	LoadGlobalClassInfo(GC.m_paGoodyInfo, "CIV4GoodyInfo", "GameInfo", L"/Civ4GoodyInfo/GoodyInfos/GoodyInfo");
+	LoadGlobalClassInfo(GC.m_paHandicapInfo, "CIV4HandicapInfo", "GameInfo", L"/Civ4HandicapInfo/HandicapInfos/HandicapInfo", &GC.m_HandicapInfoReplacements);
 	shouldHaveType = false;
 
-	LoadGlobalClassInfo(GC.m_paMPOptionInfos, "CIV4MPOptionInfos", "GameInfo", L"/Civ4MPOptionInfos/MPOptionInfos/MPOptionInfo", false);
-	LoadGlobalClassInfo(GC.m_paForceControlInfos, "CIV4ForceControlInfos", "GameInfo", L"/Civ4ForceControlInfos/ForceControlInfos/ForceControlInfo", false);
+	LoadGlobalClassInfo(GC.m_paMPOptionInfos, "CIV4MPOptionInfos", "GameInfo", L"/Civ4MPOptionInfos/MPOptionInfos/MPOptionInfo");
+	LoadGlobalClassInfo(GC.m_paForceControlInfos, "CIV4ForceControlInfos", "GameInfo", L"/Civ4ForceControlInfos/ForceControlInfos/ForceControlInfo");
 
-	LoadGlobalClassInfo(GC.m_paEventInfo, "CIV4EventInfos", "Events", L"/Civ4EventInfos/EventInfos/EventInfo", false, &GC.m_EventInfoReplacements);
-	LoadGlobalClassInfo(GC.m_paEventTriggerInfo, "CIV4EventTriggerInfos", "Events", L"/Civ4EventTriggerInfos/EventTriggerInfos/EventTriggerInfo", false, &GC.m_EventTriggerInfoReplacements);
+	LoadGlobalClassInfo(GC.m_paEventInfo, "CIV4EventInfos", "Events", L"/Civ4EventInfos/EventInfos/EventInfo", &GC.m_EventInfoReplacements);
+	LoadGlobalClassInfo(GC.m_paEventTriggerInfo, "CIV4EventTriggerInfos", "Events", L"/Civ4EventTriggerInfos/EventTriggerInfos/EventTriggerInfo", &GC.m_EventTriggerInfoReplacements);
 	OutputDebugString("Base load complete\n");
 
 	// AIAndy: Resolve delayed resolutions of type strings
@@ -985,63 +985,63 @@ bool CvXMLLoadUtility::LoadPostMenuGlobals()
 	//throne room disabled
 	UpdateProgressCB("Global Throne Room");
 
-	LoadGlobalClassInfo(GC.m_paThroneRoomCamera, "CIV4ThroneRoomCameraInfos", "Interface", L"/Civ4ThroneRoomCameraInfos/ThroneRoomCameraInfos/ThroneRoomCamera", false);
-	LoadGlobalClassInfo(GC.m_paThroneRoomInfo, "CIV4ThroneRoomInfos", "Interface", L"/Civ4ThroneRoomInfos/ThroneRoomInfos/ThroneRoomInfo", false);
-	LoadGlobalClassInfo(GC.m_paThroneRoomStyleInfo, "CIV4ThroneRoomStyleInfos", "Interface", L"/Civ4ThroneRoomStyleInfos/ThroneRoomStyleInfos/ThroneRoomStyleInfo", false);
+	LoadGlobalClassInfo(GC.m_paThroneRoomCamera, "CIV4ThroneRoomCameraInfos", "Interface", L"/Civ4ThroneRoomCameraInfos/ThroneRoomCameraInfos/ThroneRoomCamera");
+	LoadGlobalClassInfo(GC.m_paThroneRoomInfo, "CIV4ThroneRoomInfos", "Interface", L"/Civ4ThroneRoomInfos/ThroneRoomInfos/ThroneRoomInfo");
+	LoadGlobalClassInfo(GC.m_paThroneRoomStyleInfo, "CIV4ThroneRoomStyleInfos", "Interface", L"/Civ4ThroneRoomStyleInfos/ThroneRoomStyleInfos/ThroneRoomStyleInfo");
 
 	UpdateProgressCB("Global Events");
 	UpdateProgressCB("Global Routes");
 
-	LoadGlobalClassInfo(GC.m_paRouteModelInfo, "CIV4RouteModelInfos", "Art", L"/Civ4RouteModelInfos/RouteModelInfos/RouteModelInfo", false);
+	LoadGlobalClassInfo(GC.m_paRouteModelInfo, "CIV4RouteModelInfos", "Art", L"/Civ4RouteModelInfos/RouteModelInfos/RouteModelInfo");
 
 	UpdateProgressCB("Global Rivers");
 
-	LoadGlobalClassInfo(GC.m_paRiverModelInfo, "CIV4RiverModelInfos", "Art", L"/Civ4RiverModelInfos/RiverModelInfos/RiverModelInfo", false);
+	LoadGlobalClassInfo(GC.m_paRiverModelInfo, "CIV4RiverModelInfos", "Art", L"/Civ4RiverModelInfos/RiverModelInfos/RiverModelInfo");
 
 	UpdateProgressCB("Global Other");
 
-	LoadGlobalClassInfo(GC.m_paWaterPlaneInfo, "CIV4WaterPlaneInfos", "Misc", L"/Civ4WaterPlaneInfos/WaterPlaneInfos/WaterPlaneInfo", false);
-	LoadGlobalClassInfo(GC.m_paTerrainPlaneInfo, "CIV4TerrainPlaneInfos", "Misc", L"/Civ4TerrainPlaneInfos/TerrainPlaneInfos/TerrainPlaneInfo", false);
-	LoadGlobalClassInfo(GC.m_paCameraOverlayInfo, "CIV4CameraOverlayInfos", "Misc", L"/Civ4CameraOverlayInfos/CameraOverlayInfos/CameraOverlayInfo", false);
+	LoadGlobalClassInfo(GC.m_paWaterPlaneInfo, "CIV4WaterPlaneInfos", "Misc", L"/Civ4WaterPlaneInfos/WaterPlaneInfos/WaterPlaneInfo");
+	LoadGlobalClassInfo(GC.m_paTerrainPlaneInfo, "CIV4TerrainPlaneInfos", "Misc", L"/Civ4TerrainPlaneInfos/TerrainPlaneInfos/TerrainPlaneInfo");
+	LoadGlobalClassInfo(GC.m_paCameraOverlayInfo, "CIV4CameraOverlayInfos", "Misc", L"/Civ4CameraOverlayInfos/CameraOverlayInfos/CameraOverlayInfo");
 
 
 	UpdateProgressCB("Global Process");
 
-	LoadGlobalClassInfo(GC.m_paProcessInfo, "CIV4ProcessInfo", "GameInfo", L"/Civ4ProcessInfo/ProcessInfos/ProcessInfo", false, &GC.m_ProcessInfoReplacements);
+	LoadGlobalClassInfo(GC.m_paProcessInfo, "CIV4ProcessInfo", "GameInfo", L"/Civ4ProcessInfo/ProcessInfos/ProcessInfo", &GC.m_ProcessInfoReplacements);
 
 	UpdateProgressCB("Global Emphasize");
 
-	LoadGlobalClassInfo(GC.m_paEmphasizeInfo, "CIV4EmphasizeInfo", "GameInfo", L"/Civ4EmphasizeInfo/EmphasizeInfos/EmphasizeInfo", false);
+	LoadGlobalClassInfo(GC.m_paEmphasizeInfo, "CIV4EmphasizeInfo", "GameInfo", L"/Civ4EmphasizeInfo/EmphasizeInfos/EmphasizeInfo");
 
 	UpdateProgressCB("Global Other");
 
-	LoadGlobalClassInfo(GC.m_paControlInfo, "CIV4ControlInfos", "Units", L"/Civ4ControlInfos/ControlInfos/ControlInfo", false);
-	LoadGlobalClassInfo(GC.m_paCommandInfo, "CIV4CommandInfos", "Units", L"/Civ4CommandInfos/CommandInfos/CommandInfo", false);
-	LoadGlobalClassInfo(GC.m_paAutomateInfo, "CIV4AutomateInfos", "Units", L"/Civ4AutomateInfos/AutomateInfos/AutomateInfo", false);
+	LoadGlobalClassInfo(GC.m_paControlInfo, "CIV4ControlInfos", "Units", L"/Civ4ControlInfos/ControlInfos/ControlInfo");
+	LoadGlobalClassInfo(GC.m_paCommandInfo, "CIV4CommandInfos", "Units", L"/Civ4CommandInfos/CommandInfos/CommandInfo");
+	LoadGlobalClassInfo(GC.m_paAutomateInfo, "CIV4AutomateInfos", "Units", L"/Civ4AutomateInfos/AutomateInfos/AutomateInfo");
 
 	UpdateProgressCB("Global Vote");
 
-	LoadGlobalClassInfo(GC.m_paVoteInfo, "CIV4VoteInfo", "GameInfo", L"/Civ4VoteInfo/VoteInfos/VoteInfo", false);
+	LoadGlobalClassInfo(GC.m_paVoteInfo, "CIV4VoteInfo", "GameInfo", L"/Civ4VoteInfo/VoteInfos/VoteInfo");
 
 	UpdateProgressCB("Global Interface");
 
-	LoadGlobalClassInfo(GC.m_paInterfaceModeInfo, "CIV4InterfaceModeInfos", "Interface", L"/Civ4InterfaceModeInfos/InterfaceModeInfos/InterfaceModeInfo", false);
+	LoadGlobalClassInfo(GC.m_paInterfaceModeInfo, "CIV4InterfaceModeInfos", "Interface", L"/Civ4InterfaceModeInfos/InterfaceModeInfos/InterfaceModeInfo");
 
 	SetGlobalActionInfo();
 
 	// Load the formation info
-	LoadGlobalClassInfo(GC.m_paUnitFormationInfo, "CIV4FormationInfos", "Units", L"/UnitFormations/UnitFormation", false);
+	LoadGlobalClassInfo(GC.m_paUnitFormationInfo, "CIV4FormationInfos", "Units", L"/UnitFormations/UnitFormation");
 
 	// Load the attachable infos
-	LoadGlobalClassInfo(GC.m_paAttachableInfo, "CIV4AttachableInfos", "Misc", L"/Civ4AttachableInfos/AttachableInfos/AttachableInfo", false);
+	LoadGlobalClassInfo(GC.m_paAttachableInfo, "CIV4AttachableInfos", "Misc", L"/Civ4AttachableInfos/AttachableInfos/AttachableInfo");
 
 	// Special Case Diplomacy Info due to double vectored nature and appending of Responses
 	LoadDiplomacyInfo(GC.m_paDiplomacyInfo, "CIV4DiplomacyInfos", "GameInfo", L"/Civ4DiplomacyInfos/DiplomacyInfos/DiplomacyInfo", true);
 
-	LoadGlobalClassInfo(GC.m_paEspionageMissionInfo, "CIV4EspionageMissionInfo", "GameInfo", L"/Civ4EspionageMissionInfo/EspionageMissionInfos/EspionageMissionInfo", false);
+	LoadGlobalClassInfo(GC.m_paEspionageMissionInfo, "CIV4EspionageMissionInfo", "GameInfo", L"/Civ4EspionageMissionInfo/EspionageMissionInfos/EspionageMissionInfo");
 
 	// TB: Moved to enable PlayerTypes to load with Spawn Infos.  Spawn infos aren't called by any other class anyhow.
-	LoadGlobalClassInfo(GC.m_paSpawnInfo, "CIV4SpawnInfos", "Units", L"/Civ4SpawnInfos/SpawnInfos/SpawnInfo", false, &GC.m_SpawnInfoReplacements);
+	LoadGlobalClassInfo(GC.m_paSpawnInfo, "CIV4SpawnInfos", "Units", L"/Civ4SpawnInfos/SpawnInfos/SpawnInfo", &GC.m_SpawnInfoReplacements);
 	DestroyFXml();
 
 	GC.getInitCore().calculateAssetCheckSum();
@@ -1660,79 +1660,6 @@ void CvXMLLoadUtility::SetGlobalClassInfo(std::vector<T*>& aInfos, const wchar_t
 }
 
 
-// MRGENIE - MODULAR_LOADING_CONTROL - 05/17/08 - This method is a replacement for the bTwoPass.
-//	The bTwoPass would fail if stuff depend on each other since it doesn't look first in the other Modules!
-template <class T>
-void CvXMLLoadUtility::SetGlobalClassInfoTwoPassReplacement(std::vector<T*>& aInfos, const wchar_t* szTagName, CvInfoReplacements<T>* pReplacements)
-{
-	char szLog[256];
-	char* tmp = xercesc::XMLString::transcode(szTagName);
-	sprintf(szLog, "SetGlobalClassInfo (%s)\n", tmp);
-	xercesc::XMLString::release(&tmp);
-	PROFILE(szLog);
-	logging::logMsg("xml.log", szLog);
-
-	if (TryMoveToXmlFirstMatchingElement(szTagName))
-	{
-		// loop through each tag
-		do
-		{
-			CvString szTypeName, szTypeReplace;
-			if (!GetOptionalChildXmlValByName(szTypeName, L"Type") || szTypeName.empty())
-			{
-				char* tmp = xercesc::XMLString::transcode(GetCurrentXMLElement()->getNodeName());
-				char* tmp2 = xercesc::XMLString::transcode(GetCurrentXMLElement()->getTextContent());
-				const CvString errorMsg = CvString::format("Missing Element, %s, %s", tmp, tmp2);
-				xercesc::XMLString::release(&tmp);
-				xercesc::XMLString::release(&tmp2);
-				FErrorMsg(errorMsg)
-				continue;
-			}
-			// (1) Check if an object of the name exists already. If not, skip it.
-			if (GC.getInfoTypeForString(szTypeName, true) == -1) {
-				FErrorMsg(CvString::format("Item %s not found to do a ReadPass2", szTypeName.c_str()))
-				continue;
-			}
-			// (2) Check dependencies. If not satisfied, skip altogether
-			if (!CheckDependency())
-				continue;
-			// (3) Read off if a modder wants his work to completely replace the core definition
-			bool bForceOverwrite = false;
-			GetOptionalChildXmlValByName(&bForceOverwrite, L"bForceOverwrite");
-			// (4) Read off the Replacement condition
-			uint uiReplacementID = 0;
-			bst::shared_ptr<const BoolExpr> pReplacementCondition;
-			if (GetOptionalChildXmlValByName(szTypeReplace, L"ReplacementID") && szTypeReplace.size()) {
-				uiReplacementID = CvInfoReplacements<T>::getReplacementIDForString(szTypeReplace);
-				if (TryMoveToXmlFirstChild(L"ReplacementCondition")) {
-					if (TryMoveToXmlFirstChild()) {
-						pReplacementCondition.reset(BoolExpr::read(this));
-						MoveToXmlParent();
-					}
-					MoveToXmlParent();
-				}
-			}
-			T pClassInfo;
-			if (pClassInfo.readPass2(this))
-			{
-				uint uiExistPosition = GC.getInfoTypeForString(szTypeName);
-				FAssertMsg(uiExistPosition != -1, "Couldn't find info type");
-				if (szTypeReplace.empty())
-				{
-					aInfos[uiExistPosition]->copyNonDefaultsReadPass2(&pClassInfo, this, bForceOverwrite);
-				}
-				else
-				{
-					CvInfoReplacement<T>* pExisting = pReplacements->getReplacement(uiExistPosition, uiReplacementID);
-					FAssertMsg(pExisting != NULL, CvString::format("Must have an existing replacement object of ID %s on the list!", szTypeReplace.c_str()))
-					pExisting->getInfo()->copyNonDefaultsReadPass2(&pClassInfo, this, bForceOverwrite);
-				}
-			}
-		} while (TryMoveToXmlNextSibling());
-	}
-}
-
-
 void CvXMLLoadUtility::SetDiplomacyInfo(std::vector<CvDiplomacyInfo*>& DiploInfos, const wchar_t* szTagName)
 {
 	char szLog[256];
@@ -1783,7 +1710,7 @@ void CvXMLLoadUtility::SetDiplomacyInfo(std::vector<CvDiplomacyInfo*>& DiploInfo
 }
 
 template <class T>
-void CvXMLLoadUtility::LoadGlobalClassInfo(std::vector<T*>& aInfos, const char* szFileRoot, const char* szFileDirectory, const wchar_t* szXmlPath, bool bTwoPass, CvInfoReplacements<T>* pReplacements)
+void CvXMLLoadUtility::LoadGlobalClassInfo(std::vector<T*>& aInfos, const char* szFileRoot, const char* szFileDirectory, const wchar_t* szXmlPath, CvInfoReplacements<T>* pReplacements)
 {
 	PROFILE_EXTRA_FUNC();
 	GC.addToInfosVectors(&aInfos, InfoClassTraits<T>::InfoClassEnum);
@@ -1816,37 +1743,6 @@ void CvXMLLoadUtility::LoadGlobalClassInfo(std::vector<T*>& aInfos, const char* 
 				SetGlobalClassInfo(aInfos, szXmlPath, pReplacements);
 			}
 		}
-
-		//AIAndy: Moved to this place so module stuff first pass is loaded before the second pass to the base XML
-		if (bTwoPass)
-		{
-			std::vector<CvString> aszFiles;
-			const CvString szModDirectory = GC.getInitCore().getDLLPath() + "\\xml\\";
-			CvXMLLoadUtilitySetMod::MLFEnumerateFiles(aszFiles, (szModDirectory + szFileDirectory).c_str(), CvString::format("xml\\%s", szFileDirectory).c_str(), CvString::format("%s.xml", szFileRoot).c_str(), false);
-			if (aszFiles.empty())
-				aszFiles.push_back(CvString::format("xml\\%s/%s.xml", szFileDirectory, szFileRoot));
-
-			foreach_(const CvString& szFile, aszFiles)
-			{
-				if (LoadCivXml(szFile))
-				{
-					SetGlobalClassInfoTwoPassReplacement(aInfos, szXmlPath, pReplacements);
-				}
-			}
-		}
-
-		// MRGENIE - MODULAR_LOADING_CONTROL - 05/17/08 - This method is a replacement for the bTwoPass.
-		//	The bTwoPass would fail if stuff depend on each other since it doesn't look first in the other Modules!
-		if (bTwoPass)	// reloop through the modules!
-		{
-			foreach_(const CvString& szFile, aszFiles)
-			{
-				if (LoadCivXml(szFile))
-				{
-					SetGlobalClassInfoTwoPassReplacement(aInfos, szXmlPath, pReplacements);
-				}
-			}
-		}
 	}
 	else
 	{
@@ -1858,37 +1754,6 @@ void CvXMLLoadUtility::LoadGlobalClassInfo(std::vector<T*>& aInfos, const char* 
 			if (LoadCivXml(szFile))
 			{
 				SetGlobalClassInfo(aInfos, szXmlPath, pReplacements);
-			}
-		}
-
-		//AIAndy: Moved to this place so module stuff first pass is loaded before the second pass to the base XML
-		if (bTwoPass)
-		{
-			std::vector<CvString> aszFiles;
-			const CvString szModDirectory = GC.getInitCore().getDLLPath() + "\\xml\\";
-			CvXMLLoadUtilitySetMod::MLFEnumerateFiles(aszFiles, (szModDirectory + szFileDirectory).c_str(), CvString::format("xml\\%s", szFileDirectory).c_str(), CvString::format("%s.xml", szFileRoot).c_str(), false);
-			if (aszFiles.empty())
-				aszFiles.push_back(CvString::format("xml\\%s/%s.xml", szFileDirectory, szFileRoot));
-
-			foreach_(const CvString& szFile, aszFiles)
-			{
-				if (LoadCivXml(szFile))
-				{
-					SetGlobalClassInfoTwoPassReplacement(aInfos, szXmlPath, pReplacements);
-				}
-			}
-		}
-
-		// MRGENIE - MODULAR_LOADING_CONTROL - 05/17/08 - This method is a replacement for the bTwoPass.
-		//	The bTwoPass would fail if stuff depend on each other since it doesn't look first in the other Modules!
-		if (bTwoPass) // reloop through the modules!
-		{
-			foreach_(const CvString& szFile, aszFiles)
-			{
-				if (LoadCivXml(szFile))
-				{
-					SetGlobalClassInfoTwoPassReplacement(aInfos, szXmlPath, pReplacements);
-				}
 			}
 		}
 	}
@@ -2510,7 +2375,7 @@ bool CvXMLLoadUtility::LoadPlayerOptions()
 	}
 	if (!CreateFXml()) return false;
 
-	LoadGlobalClassInfo(GC.m_paPlayerOptionInfos, "CIV4PlayerOptionInfos", "GameInfo", L"/Civ4PlayerOptionInfos/PlayerOptionInfos/PlayerOptionInfo", false);
+	LoadGlobalClassInfo(GC.m_paPlayerOptionInfos, "CIV4PlayerOptionInfos", "GameInfo", L"/Civ4PlayerOptionInfos/PlayerOptionInfos/PlayerOptionInfo");
 	FAssert(static_cast<int>(GC.m_paPlayerOptionInfos.size()) == NUM_PLAYEROPTION_TYPES);
 
 	DestroyFXml();
@@ -2521,7 +2386,7 @@ bool CvXMLLoadUtility::LoadGraphicOptions()
 {
 	if (!CreateFXml()) return false;
 
-	LoadGlobalClassInfo(GC.m_paGraphicOptionInfos, "CIV4GraphicOptionInfos", "GameInfo", L"/Civ4GraphicOptionInfos/GraphicOptionInfos/GraphicOptionInfo", false);
+	LoadGlobalClassInfo(GC.m_paGraphicOptionInfos, "CIV4GraphicOptionInfos", "GameInfo", L"/Civ4GraphicOptionInfos/GraphicOptionInfos/GraphicOptionInfo");
 	FAssert(static_cast<int>(GC.m_paGraphicOptionInfos.size()) == NUM_GRAPHICOPTION_TYPES);
 
 	DestroyFXml();

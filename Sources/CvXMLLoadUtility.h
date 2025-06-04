@@ -796,30 +796,9 @@ private:
 	// a dynamic value for the list size
 	template <class T>
 	void SetGlobalClassInfo(std::vector<T*>& aInfos, const wchar_t* szTagName, CvInfoReplacements<T>* pReplacements = NULL);
-/************************************************************************************************/
-/* MODULAR_LOADING_CONTROL                 05/17/08                                MRGENIE      */
-/*                                                                                              */
-/* This method is a replacement for the bTwoPass, if stuff that is depending on each other in   */
-/* a loop, the bTwoPass would fail since it doesn't look first in the other Modules!            */
-/************************************************************************************************/
 	template <class T>
-	void SetGlobalClassInfoTwoPassReplacement(std::vector<T*>& aInfos, const wchar_t* szTagName, CvInfoReplacements<T>* pReplacements = NULL);
-/************************************************************************************************/
-/* MODULAR_LOADING_CONTROL                 END                                                  */
-/************************************************************************************************/
-	template <class T>
-	void LoadGlobalClassInfo(std::vector<T*>& aInfos, const char* szFileRoot, const char* szFileDirectory, const wchar_t* szXmlPath, bool bTwoPass, CvInfoReplacements<T>* pReplacements = NULL);
-/************************************************************************************************/
-/* MODULAR_LOADING_CONTROL                 05/13/08                                MRGENIE      */
-/*                                                                                              */
-/*                                                                                              */
-/************************************************************************************************/
-	/*
-	template <class T>
-	void LoadGlobalClassInfoModular(std::vector<T*>& aInfos, const char* szFileRoot, const char* szFileDirectory, const char* szXmlPath, bool bTwoPass);*/
-/************************************************************************************************/
-/* MODULAR_LOADING_CONTROL                 END                                                  */
-/************************************************************************************************/
+	void LoadGlobalClassInfo(std::vector<T*>& aInfos, const char* szFileRoot, const char* szFileDirectory, const wchar_t* szXmlPath, CvInfoReplacements<T>* pReplacements = NULL);
+
 	void SetDiplomacyInfo(std::vector<CvDiplomacyInfo*>& DiploInfos, const wchar_t* szTagName);
 	void LoadDiplomacyInfo(std::vector<CvDiplomacyInfo*>& DiploInfos, const char* szFileRoot, const char* szFileDirectory, const wchar_t* szXmlPath, bool bUseCaching);
 
