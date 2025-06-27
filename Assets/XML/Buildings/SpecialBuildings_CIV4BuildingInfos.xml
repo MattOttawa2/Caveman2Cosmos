@@ -486,6 +486,10 @@
 				<BuildingType>BUILDING_LAUNCH_ARCOLOGY</BuildingType>
 			</ReplacementBuildings>
 			<iHealth>-1</iHealth>
+			<YieldChanges>
+				<iYield>0</iYield>
+				<iYield>2</iYield>
+			</YieldChanges>
 			<CommerceChanges>
 				<iCommerce>1</iCommerce>
 			</CommerceChanges>
@@ -588,6 +592,8 @@
 			<Description>TXT_KEY_BUILDING_WORLDVIEW_CANNIBALISM_ACTIVE</Description>
 			<Civilopedia>TXT_KEY_BUILDING_WORLDVIEW_CANNIBALISM_PEDIA</Civilopedia>
 			<bForceNoPrereqScaling>1</bForceNoPrereqScaling>
+			<iHappiness>-1</iHappiness>
+			<iHealth>-1</iHealth>
 			<PrereqAmountBuildings>
 				<PrereqBuilding>
 					<BuildingType>BUILDING_WORLDVIEW_CANNIBALISM</BuildingType>
@@ -600,15 +606,18 @@
 			<TechHappinessChanges>
 				<TechHappinessChange>
 					<PrereqTech>TECH_PHILOSOPHY</PrereqTech>
-					<iHappiness>-1</iHappiness>
+					<iHappiness>-3</iHappiness>
+					<iHealth>-3</iHealth>
 				</TechHappinessChange>
 				<TechHappinessChange>
 					<PrereqTech>TECH_CODE_OF_LAWS</PrereqTech>
-					<iHappiness>-2</iHappiness>
+					<iHappiness>-4</iHappiness>
+					<iHealth>-4</iHealth>
 				</TechHappinessChange>
 				<TechHappinessChange>
 					<PrereqTech>TECH_HUMANISM</PrereqTech>
-					<iHappiness>-1</iHappiness>
+					<iHappiness>-3</iHappiness>
+					<iHealth>-3</iHealth>
 				</TechHappinessChange>
 			</TechHappinessChanges>
 			<bAutoBuild>1</bAutoBuild>
@@ -8422,7 +8431,7 @@
 			<Properties>
 				<Property>
 					<PropertyType>PROPERTY_FLAMMABILITY</PropertyType>
-					<iPropertyValue>5</iPropertyValue>
+					<iPropertyValue>3</iPropertyValue>
 				</Property>
 			</Properties>
 			<PropertyManipulators>
